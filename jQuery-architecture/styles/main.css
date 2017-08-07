@@ -1,0 +1,17 @@
+nav {
+	text-align: center;
+}
+#root {
+	width: 80%;
+    margin: 0 10%;
+	text-align: center;
+}
+.todo {
+	margin: 5px;
+    padding: 5px;
+    border: 1px solid;
+    display: inline-block;
+}
+button {
+	margin: 5px;
+}
