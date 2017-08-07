@@ -10,3 +10,6 @@ Internship informational app
 - this app can run without server when you open index.html in *for-no-serverbuild* folder but it will only render the global react-router-dom route and cannot find/render home/about/create components
 - as said the app is using react-router-dom v4
 - also the react source code is provided and if someone wants to see the app then it have to be runned through server that uses react
+
+## jQuery Proof of Concept branch
+Templates are generated with callback functions. Dedicated view files. Controller module, which attaches event-listeners and changes views, based on user interaction. RequireJS is used for easier module support in browser.
