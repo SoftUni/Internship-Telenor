@@ -208,10 +208,10 @@ body {
     }
     .card-wrapper {
         width: 90%;
-        margin: 20px 10px 0 0;
+        margin: 20px 0 0 0;
     }
-    .intern-cards:last-child {
-         margin: 20px 10px 20px 0;
+    .card-wrapper:last-child {
+         margin: 20px 0;
     }
     .card-front, .card-back {
         height: 190px;
