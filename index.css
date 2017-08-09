@@ -70,6 +70,7 @@ body {
                 width: 30%;
                 display: inline-block;
                 perspective: 1200px;
+                margin: 20px 15px 20px 0;
             }
             .card-wrapper:hover .intern-single-card {
                 transform: rotateY(-180deg);
@@ -78,7 +79,6 @@ body {
                     position: relative;
                     transition: all 0.5s ease-in-out;
                     transform-style: preserve-3d;
-                    margin: 20px 10px 20px 0;
                 }
                     .card-front, .card-back {
                         height: 200px;
@@ -162,7 +162,7 @@ body {
         width: 65%;
         margin: 10px auto;
     }
-    article.intern-single-card {
+    .card-wrapper {
         margin: 15px 10px 15px 0;
     }
     .card-back .intern-info {
@@ -202,15 +202,16 @@ body {
     .apply-btn {
         font-size: 14px;
     }
-    .card-wrapper {
-        width: 80%;
-    }
     .intern-cards .title {
         font-size: 20px;
         margin: 0;
     }
-    article.intern-single-card {
-        margin: 10px 0;
+    .card-wrapper {
+        width: 90%;
+        margin: 20px 10px 0 0;
+    }
+    .intern-cards:last-child {
+         margin: 20px 10px 20px 0;
     }
     .card-front, .card-back {
         height: 190px;
@@ -234,9 +235,6 @@ body {
 
 @media screen and (max-width: 400px) {
     main {
-        width: 90%;
-    }
-    .card-wrapper {
         width: 90%;
     }
 }
