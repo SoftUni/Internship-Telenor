@@ -59,6 +59,7 @@ body {
                         border: none;
                         color: #ffffff;
                         text-transform: uppercase;
+                        cursor: pointer;
                     }
         section.intern-cards {
             width: 100%;
@@ -71,6 +72,7 @@ body {
                 display: inline-block;
                 perspective: 1200px;
                 margin: 20px 15px 20px 0;
+                cursor: pointer;
             }
             .card-wrapper:hover .intern-single-card {
                 transform: rotateY(-180deg);
@@ -114,6 +116,7 @@ body {
                             border: none;
                             color: #ffffff;
                             text-transform: uppercase;
+                            cursor: pointer;
                         }
                         .card-back .intern-info {
                             font-style: italic;
