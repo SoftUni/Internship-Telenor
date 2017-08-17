@@ -195,9 +195,9 @@ body {
     body {
         font-size: 14px;
     }
-    main {
-        width: 80%;
-    }
+    /*main {*/
+        /*width: 80%;*/
+    /*}*/
     header.telenor-nav {
         margin-bottom: 10px;
     }
