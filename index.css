@@ -208,7 +208,7 @@ body {
         font-size: 14px;
     }
     .intern-cards .title {
-        font-size: 20px;
+        font-size: 18px;
         margin: 0;
     }
     .card-wrapper {
@@ -228,10 +228,13 @@ body {
         font-size: 16px;
     }
     .card-back {
-        padding: 25px 20px 0 25px;
+        padding: 15px 10px 0 15px;
     }
     .card-back .intern-info {
-        font-size: 15px;
+        font-size: 14px;
+    }
+    .intern-more-info-btn {
+        font-size: 12px;
     }
     footer {
         margin-top: 10px;

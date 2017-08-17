@@ -26,6 +26,10 @@ main {
     border: none;
     /*font-size: 20px;*/
 }
+.question:hover {
+    cursor: pointer;
+    background-color: #bae6f4;
+}
 
 .close.back-btn span {
     /*font-size: 20px;*/
