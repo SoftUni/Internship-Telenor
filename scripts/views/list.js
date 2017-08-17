@@ -1,4 +1,4 @@
-define(['../intern-card-template.js'], internCardTemplate => {
+define(['../templates/intern-card-template.js'], internCardTemplate => {
     return (interns) => {
         let generateListOfAllCards = `
             <div class="hub-image-wrapper">

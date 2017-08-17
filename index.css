@@ -18,7 +18,7 @@ body {
             height: 130px;
         }
     main {
-        width: 90%;
+        /*width: 90%;  Damage control*/
         margin: auto;
     }
         .hub-image-wrapper {
