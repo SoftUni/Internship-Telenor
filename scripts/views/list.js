@@ -31,8 +31,3 @@ define(['../intern-card-template.js'], internCardTemplate => {
         return generateListOfAllCards
     }
 })
-
-// define(['../intern-card-template'], internCardTemplate => {
-//     return (interns) => interns
-//         .map(intern => internCardTemplate.generate(intern.id, intern.name, intern.picture))
-// })
