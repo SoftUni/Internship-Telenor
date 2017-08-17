@@ -87,6 +87,9 @@ main {
 			.question-details {
 				flex: 2;
 			}
+				.question-details iframe {
+					width: 100%;
+				}
 			.questions {
 				flex: 1;
 			}
