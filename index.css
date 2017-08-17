@@ -72,7 +72,6 @@ body {
                 display: inline-block;
                 perspective: 1200px;
                 margin: 20px 15px 20px 0;
-                cursor: pointer;
             }
             .card-wrapper:hover .intern-single-card {
                 transform: rotateY(-180deg);
@@ -106,7 +105,7 @@ body {
                         .card-front .intern-name {
                             font-weight: bold;
                         }
-                        .card-front .intern-more-info-btn {
+                        .intern-more-info-btn {
                             font-size: 14px;
                             padding: 5px 13px;
                             background: linear-gradient(
@@ -117,6 +116,9 @@ body {
                             color: #ffffff;
                             text-transform: uppercase;
                             cursor: pointer;
+                        }
+                        .card-back .intern-more-info-btn {
+                            margin: auto;
                         }
                         .card-back .intern-info {
                             font-style: italic;
