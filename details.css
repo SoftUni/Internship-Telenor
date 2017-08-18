@@ -6,13 +6,13 @@ a {
     text-decoration: none;
 }
 main {
-    margin: 20px;
+    /*margin: 20px;*/
 }
     .details-container {
+		margin: 20px;
 		border: 1px solid rgb(189, 189, 189);
 		border-bottom-left-radius: 15px;
-		box-shadow: 0px 5px 20px 2px rgb(148, 162, 181);
-
+		box-shadow: 0 5px 20px 2px rgb(148, 162, 181);
 	}
 		header.intern-detail-info {
 			display: flex;
@@ -25,15 +25,15 @@ main {
 			.intern-detail-info > * {
 				padding: 0 15px;
 			}
-			.intern-image-wrapper {
+			.details-container .intern-image-wrapper {
 				height: 130px;
 				flex: 3
 			}
-				.intern-image-wrapper img {
+				.details-container .intern-image-wrapper img {
 					height: 100%;
 					float: right
 				}
-			.intern-info {
+			.details-container .intern-info {
 				flex: 5;
 			}
 				.intern-info h2,
@@ -145,9 +145,5 @@ main {
 }
 .question:hover {
     cursor: pointer;
-    background-color: #bae6f4;
-}
-
-.close.back-btn span {
-    /*font-size: 20px;*/
+    /*background-color: #bae6f4;*/
 }

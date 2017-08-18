@@ -17,8 +17,8 @@ body {
         .logo {
             height: 130px;
         }
-    main {
-        /*width: 90%;  Damage control*/
+    main > .list-container {
+        width: 90%;
         margin: auto;
     }
         .hub-image-wrapper {
@@ -94,7 +94,7 @@ body {
                     }
                     .card-back {
                         transform: rotateY(180deg);
-                        padding: 25px 15px 0 25px;
+                        padding: 20px 15px 0;
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -122,6 +122,7 @@ body {
                         }
                         .card-back .intern-info {
                             font-style: italic;
+                            font-size: 15px;
                         }
                         .card-back .intern-info::before {
                             content: open-quote;
@@ -192,10 +193,10 @@ body {
 
 /*phone size*/
 @media screen and (max-width: 479px) {
-    body {
+    body > .list-container {
         font-size: 14px;
     }
-    main {
+    main > .list-container {
         width: 80%;
     }
     header.telenor-nav {
@@ -242,7 +243,7 @@ body {
 }
 
 @media screen and (max-width: 400px) {
-    main {
+    main > .list-container {
         width: 90%;
     }
 }
