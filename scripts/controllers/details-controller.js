@@ -20,6 +20,9 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 	}
 
     function renderQuestionInfo(questionId) {
+	    let internId = $('#intern-id')[0].value
+        console.log(internId)
+        // TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
         let questionData = data.getQuestionVideo(0, questionId)
 
         let responseHtml = questionInfoTemplate(questionData.videoId, questionData.text)
