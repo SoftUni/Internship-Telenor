@@ -18,7 +18,9 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 
 		window.location.hash = '#details'
 		$('#root').html(detailsView(intern, internInfo.questions))
+		// Initial video reframe and highlight
         resizeFrame()
+        highLightQuestion($('.question:first'))
 	}
 	detailsController.attachListeners = listController => {
         changeQuestionListener(questionInfoTemplate, data)
@@ -39,8 +41,10 @@ function showListListener(listController, detailsController) {
 
 function changeQuestionListener(questionInfoTemplate, data) {
 	$('.question').on('click', null, null, (e) => {
-		highLightQuestion(e.target)
-		renderQuestionInfo(e.currentTarget.attributes.value.value, questionInfoTemplate, data)
+        const elemLi = e.currentTarget
+
+		highLightQuestion(elemLi)
+		renderQuestionInfo(elemLi.value, questionInfoTemplate, data)
 		resizeFrame()
 	})
 }
@@ -61,7 +65,7 @@ function resizeFrame() {
 
 function renderQuestionInfo(questionId, questionInfoTemplate, data) {
 	let internId = $('#intern-id')[0].value
-	console.log(internId)
+	console.log('User Id: ', internId)
 	// TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
 	let questionData = data.getQuestionVideo(0, questionId)
 
@@ -70,13 +74,7 @@ function renderQuestionInfo(questionId, questionInfoTemplate, data) {
 	$('.question-details').html(responseHtml)
 }
 
-function highLightQuestion(element) {
-	element = $(element)
-	if (element.is('p')) {
-		element = element.parent()
-	}
-
+function highLightQuestion(elemLi) {
 	$('.question').removeClass('active')
-	console.log(element)
-	element.addClass('active')
+	$(elemLi).addClass('active')
 }
