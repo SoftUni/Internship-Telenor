@@ -11,10 +11,12 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
         let internInfo = data.getAllInternQuestions(intern.id)
 
 		$('#root').html(detailsView(intern, internInfo.questions))
+        resizeFrame()
 	}
 	detailsController.attachListeners = listController => {
         questionInfoListener()
         showListListener(listController, detailsController)
+        resizeListener()
 	}
 
     function renderQuestionInfo(questionId) {
@@ -34,9 +36,25 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
     return detailsController
 })
 
+// Listeners
 function showListListener(listController, detailsController) {
     $('.close').on('click', null, null, () => {
         listController.render()
         listController.attachListeners(detailsController)
     })
+}
+
+
+function resizeListener() {
+	$(window).on('resize', null, null, () => {
+		resizeFrame()
+	})
+}
+
+// Listener dependencies
+function resizeFrame() {
+	let playerFrame = $('iframe')
+	let frameWidth = playerFrame.width()
+	let frameHeight = Math.trunc(frameWidth / 1.777)
+	playerFrame.height(frameHeight)
 }

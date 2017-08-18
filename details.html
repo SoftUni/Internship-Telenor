@@ -35,6 +35,18 @@
 				</div>
 			</header>
 			<section class="position-details">
+				<section class="question-details">
+					<div class="player-wrapper">
+						<iframe id="ytplayer"
+								src="https://www.youtube.com/embed/1Wh8RzcQZr4"
+								frameborder="0"></iframe>
+					</div>
+					<div class="description-wrapper">
+						<p class="question-text">
+							Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+						</p>
+					</div>
+				</section>
 				<aside class="questions">
 					<nav>
 						<ul class="question-list">
@@ -86,23 +98,23 @@
 						</ul>
 					</nav>
 				</aside>
-				<section class="question-details">
-					<div class="player-wrapper">
-						<iframe id="ytplayer" type="text/html" width="400" height="240"
-								src="https://www.youtube.com/embed/1Wh8RzcQZr4"
-								frameborder="0"></iframe>
-					</div>
-					<div class="description-wrapper">
-						<p class="question-text">
-							Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-						</p>
-					</div>
-				</section>
 			</section>
 		</div>
     </main>
     <footer>
         <img src="./images/Telenor_logo_grey.png" alt="telenor logo" class="logo">
     </footer>
+<script>
+$(document).ready(IFrameResizer)
+
+function IFrameResizer() {
+	$(window).on('resize', null, null, () => {
+		let playerFrame = $('iframe')
+		let frameWidth = playerFrame.width()
+		let frameHeight = Math.trunc(frameWidth / 1.777)
+		playerFrame.height(frameHeight)
+	})
+}
+</script>
 </body>
 </html>
