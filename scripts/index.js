@@ -6,8 +6,16 @@ const dependencies = [
 define(dependencies, (listController, detailsController) => {
 
 	$(document).ready(() => {
-		listController.render()
-		listController.attachListeners(detailsController)
+		switch (window.location.hash) {
+			case '#details':
+				detailsController.render()
+				detailsController.attachListeners(listController)
+				break;
+			default:
+				listController.render()
+				listController.attachListeners(detailsController)
+				break;
+		}
 	})
 })
 
