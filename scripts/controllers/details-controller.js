@@ -1,4 +1,4 @@
-let detailsDependencies = [
+const detailsDependencies = [
 	'../data.js',
 	'../views/details.js',
     '../templates/section-details-question-info.js'

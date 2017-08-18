@@ -1,4 +1,4 @@
-let viewDetailsDependancies = [
+const viewDetailsDependancies = [
     '../templates/header-details-intern-info.js',
     '../templates/aside-details-questions.js',
     '../templates/section-details-question-info.js',
@@ -7,7 +7,7 @@ let viewDetailsDependancies = [
 define(viewDetailsDependancies, (internInfoTemplate, asidebarTemplate, questionInfoTemplate) => {
     return (intern, internQuestions) => {
         const firstQuestionId = 0
-        let loadFirstQuestion = internQuestions[firstQuestionId]
+        const loadFirstQuestion = internQuestions[firstQuestionId]
 
         return `
             <div class="details-container">

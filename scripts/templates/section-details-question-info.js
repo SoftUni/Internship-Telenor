@@ -1,9 +1,10 @@
 define(() => {
     return (videoId, text) => `
         <div class="player-wrapper">
-            <iframe id="ytplayer" width="400" height="240"
+            <iframe id="ytplayer"
                     src="https://www.youtube.com/embed/${videoId}"
-                    frameborder="0"></iframe>
+                    frameborder="0" 
+                    allowfullscreen></iframe>
         </div>
         <div class="description-wrapper">
             <p class="question-text">

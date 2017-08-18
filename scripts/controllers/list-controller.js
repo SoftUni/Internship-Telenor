@@ -1,4 +1,4 @@
-let listDependencies = [
+const listDependencies = [
 	'../data.js',
 	'../views/list.js'
 ]

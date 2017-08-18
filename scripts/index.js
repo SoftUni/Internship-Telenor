@@ -1,4 +1,4 @@
-let dependencies = [
+const dependencies = [
 	'./scripts/controllers/list-controller.js',
 	'./scripts/controllers/details-controller.js'
 ]
