@@ -1,9 +1,23 @@
-define(() => function(intern) {
-    return `
-        <div>
-            <p>Id: ${intern.id}</p>
-            <p>Name: ${intern.name}</p>
-            <img src="./${intern.picture}" alt="intern picture" />
-            <button class="intern-list-btn">Back</button>
-        </div>`
+let viewDetailsDependancies = [
+    '../templates/header-details-intern-info.js',
+    '../templates/aside-details-questions.js',
+    '../templates/section-details-question-info.js',
+]
+
+define(viewDetailsDependancies, (internInfoTemplate, asidebarTemplate, questionInfoTemplate) => {
+    return (intern, internQuestions) => {
+        const firstQuestionId = 0
+        let loadFirstQuestion = internQuestions[firstQuestionId]
+
+        return `
+            <div class="details-container">
+                ${internInfoTemplate(intern)}
+                <section class="position-details">
+                    ${asidebarTemplate(internQuestions)}
+                    <section class="question-details">
+                        ${questionInfoTemplate(loadFirstQuestion.videoId, loadFirstQuestion.text)}
+                    </section>
+                </section>
+            </div>`
+    }
 })
