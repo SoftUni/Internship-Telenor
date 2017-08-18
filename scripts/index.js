@@ -5,7 +5,7 @@ const dependencies = [
 
 define(dependencies, (listController, detailsController) => {
 
-	$(document).ready(() => {
+	$(() => {
 		switch (window.location.hash) {
 			case '#details':
 				detailsController.render()

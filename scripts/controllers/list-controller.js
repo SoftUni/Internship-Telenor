@@ -1,5 +1,5 @@
 const listDependencies = [
-	'../data.js',
+	'../database/data.js',
 	'../views/list.js'
 ]
 

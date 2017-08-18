@@ -1,5 +1,5 @@
 const detailsDependencies = [
-	'../data.js',
+	'../database/data.js',
 	'../views/details.js',
     '../templates/details-view/section-details-question-info.js'
 ]
