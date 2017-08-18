@@ -8,6 +8,7 @@ define(listDependencies, (data, listView) => {
 	listController.render = () => {
 		let interns = data.getAllInterns()
 
+		window.location.hash = '#list'
 		$('#root').html(listView(interns))
 	}
 	listController.attachListeners = detailsController => {
@@ -18,8 +19,9 @@ define(listDependencies, (data, listView) => {
 })
 
 function detailsListener(detailsController, listController) {
-	$('.intern-more-info-btn').on('click', null, null, (e) => {
-		detailsController.render(e)
+	$('.intern-more-info-btn').on('click', null, null, e => {
+		window.sessionStorage.setItem('intern', e.target.value)
+		detailsController.render()
 		detailsController.attachListeners(listController)
 	})
 }

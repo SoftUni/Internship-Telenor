@@ -6,10 +6,17 @@ let detailsDependencies = [
 
 define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 	let detailsController = {}
-	detailsController.render = e => {
-		let intern = data.getSingleIntern(e.target.value)
+	detailsController.render = () => {
+		let intern = data.getSingleIntern(window.sessionStorage.intern)
+		// In case session storage is lost - refresh and load list.
+		if (!intern) {
+			window.location.hash = '#list'
+			window.location.search += '?refresh'
+			return
+		}
         let internInfo = data.getAllInternQuestions(intern.id)
 
+		window.location.hash = '#details'
 		$('#root').html(detailsView(intern, internInfo.questions))
         resizeFrame()
 	}
