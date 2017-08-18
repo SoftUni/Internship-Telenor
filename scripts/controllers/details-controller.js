@@ -14,7 +14,7 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
         resizeFrame()
 	}
 	detailsController.attachListeners = listController => {
-        questionInfoListener(questionInfoTemplate, data)
+        changeQuestionListener(questionInfoTemplate, data)
         showListListener(listController, detailsController)
         resizeListener()
 	}
@@ -30,8 +30,9 @@ function showListListener(listController, detailsController) {
     })
 }
 
-function questionInfoListener(questionInfoTemplate, data) {
+function changeQuestionListener(questionInfoTemplate, data) {
 	$('.question').on('click', null, null, (e) => {
+		highLightQuestion(e.target)
 		renderQuestionInfo(e.currentTarget.attributes.value.value, questionInfoTemplate, data)
 		resizeFrame()
 	})
@@ -60,4 +61,15 @@ function renderQuestionInfo(questionId, questionInfoTemplate, data) {
 	let responseHtml = questionInfoTemplate(questionData.videoId, questionData.text)
 
 	$('.question-details').html(responseHtml)
+}
+
+function highLightQuestion(element) {
+	element = $(element)
+	if (element.is('p')) {
+		element = element.parent()
+	}
+
+	$('.question').removeClass('active')
+	console.log(element)
+	element.addClass('active')
 }

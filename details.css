@@ -152,13 +152,33 @@ main {
 					.questions li {
 						padding: 20px;
 						position: relative;
+						z-index: 1;
 					}
+					    .questions li.active {
+							z-index: 2;
+							background: #00ace7;
+							transform: scale(1, 1.2);
+							opacity: 0.9;
+							-webkit-transition: 0.2s all ease-in-out;
+							-moz-transition: 0.2s all ease-in-out;
+							-o-transition: 0.2s all ease-in-out;
+							transition: 0.2s all ease-in-out;
+							-webkit-box-shadow: 0 5px 10px -5px rgb(148, 162, 181);
+							-moz-box-shadow: 0 5px 10px -5px rgb(148, 162, 181);
+							box-shadow: 0 5px 10px -5px rgb(148, 162, 181);
+						}
+						    .questions li.active .separator {
+								box-shadow: none;
+								-webkit-box-shadow: none;
+								-moz-box-shadow: none;
+							}
                     .question:hover {
                         cursor: pointer;
                     }
 						.questions li p {
 							margin: 0 30px;
 							text-align: center;
+							z-index: 0;
 						}
 		.description-wrapper {
 			padding: 20px;
