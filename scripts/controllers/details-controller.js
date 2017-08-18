@@ -14,27 +14,10 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
         resizeFrame()
 	}
 	detailsController.attachListeners = listController => {
-        questionInfoListener()
+        questionInfoListener(questionInfoTemplate, data)
         showListListener(listController, detailsController)
         resizeListener()
 	}
-
-    function renderQuestionInfo(questionId) {
-	    let internId = $('#intern-id')[0].value
-        console.log(internId)
-        // TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
-        let questionData = data.getQuestionVideo(0, questionId)
-
-        let responseHtml = questionInfoTemplate(questionData.videoId, questionData.text)
-
-        $('.question-details').html(responseHtml)
-    }
-
-    function questionInfoListener() {
-        $('.question').on('click', null, null, (e) => {
-            renderQuestionInfo(e.currentTarget.attributes.value.value)
-        })
-    }
 
     return detailsController
 })
@@ -47,6 +30,12 @@ function showListListener(listController, detailsController) {
     })
 }
 
+function questionInfoListener(questionInfoTemplate, data) {
+	$('.question').on('click', null, null, (e) => {
+		renderQuestionInfo(e.currentTarget.attributes.value.value, questionInfoTemplate, data)
+		resizeFrame()
+	})
+}
 
 function resizeListener() {
 	$(window).on('resize', null, null, () => {
@@ -60,4 +49,15 @@ function resizeFrame() {
 	let frameWidth = playerFrame.width()
 	let frameHeight = Math.trunc(frameWidth / 1.777)
 	playerFrame.height(frameHeight)
+}
+
+function renderQuestionInfo(questionId, questionInfoTemplate, data) {
+	let internId = $('#intern-id')[0].value
+	console.log(internId)
+	// TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
+	let questionData = data.getQuestionVideo(0, questionId)
+
+	let responseHtml = questionInfoTemplate(questionData.videoId, questionData.text)
+
+	$('.question-details').html(responseHtml)
 }

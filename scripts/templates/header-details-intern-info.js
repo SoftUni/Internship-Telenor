@@ -5,7 +5,7 @@ define(() => {
                 <img class="img-circle" src="./${intern.picture}" />
             </div>
             <section class="intern-info">
-                <input type="hidden" id="intern-id" value="${intern.id}">
+                <input type="hidden" id="intern-id" value="${intern.id}" />
                 <h2 class="name">${intern.name}</h2>
                 <p class="department"><strong>Отдел</strong>&#58; ${intern.department}</p>
                 <p class="position"><strong>Позиция</strong>&#58; ${intern.position}</p>

@@ -13,10 +13,10 @@ define(viewDetailsDependancies, (internInfoTemplate, asidebarTemplate, questionI
             <div class="details-container">
                 ${internInfoTemplate(intern)}
                 <section class="position-details">
-                    ${asidebarTemplate(internQuestions)}
                     <section class="question-details">
                         ${questionInfoTemplate(loadFirstQuestion.videoId, loadFirstQuestion.text)}
                     </section>
+                    ${asidebarTemplate(internQuestions)}
                 </section>
             </div>`
     }

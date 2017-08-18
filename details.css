@@ -9,9 +9,8 @@ main {
     /*margin: 20px;*/
 }
     .details-container {
-		margin: 20px;
 		max-width: 1280px;
-		/*margin:auto;*/
+		margin:auto;
 		border: 1px solid rgb(189, 189, 189);
 		border-bottom-left-radius: 15px;
 		box-shadow: 0 5px 20px 2px rgb(148, 162, 181);
@@ -94,6 +93,10 @@ main {
 			.questions {
 				flex: 1;
 			}
+				.questions nav,
+				.questions ul {
+					height: 100%
+				}
 				.questions ul {
 					list-style: none;
 					text-decoration: none;
