@@ -1,5 +1,5 @@
-function cardTemplate(id, name, internPic) {
-    return `
+define(() => {
+    return (id, name, internPic) => `
     <div class="card-wrapper">
         <article class="intern-single-card">
             <div class="card-front">
@@ -19,6 +19,4 @@ function cardTemplate(id, name, internPic) {
             </div>
         </article>
     </div>`
-}
-
-define({generate: cardTemplate})
+})

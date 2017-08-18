@@ -1,7 +1,7 @@
 const detailsDependencies = [
 	'../data.js',
 	'../views/details.js',
-    '../templates/section-details-question-info.js'
+    '../templates/details-view/section-details-question-info.js'
 ]
 
 define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
