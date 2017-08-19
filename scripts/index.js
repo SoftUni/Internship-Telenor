@@ -1,44 +1,31 @@
 const dependencies = [
-	'./scripts/controllers/list-controller.js',
-	'./scripts/controllers/details-controller.js'
+	'./scripts/controllers/index-controller.js'
 ]
 
-define(dependencies, (listController, detailsController) => {
+define(dependencies, indexController => {
 
 	$(() => {
 		let page = history.state ? history.state.page : 'list'
 		switch (page) {
 			case 'details':
-                loadDetailsPage(detailsController, listController)
+                indexController.loadDetailsPage()
                 break;
 			default:
-                loadListPage(listController, detailsController)
+                indexController.loadListPage()
                 break;
 		}
-        browserHistoryListener(listController, detailsController)
+        browserHistoryListener(indexController)
     })
 })
 
-function browserHistoryListener(listController, detailsController) {
+function browserHistoryListener(indexController) {
     $(window).on('popstate', event => {
         let currentState = history.state
 
 		if (!currentState || currentState.page === 'list') {
-            loadListPage(listController, detailsController)
+            indexController.loadListPage()
 		} else if (currentState.page === 'details') {
-            loadDetailsPage(detailsController, listController)
+            indexController.loadDetailsPage()
 		}
     })
 }
-
-function loadListPage(listController, detailsController) {
-    listController.render()
-    listController.removeListeners()
-    listController.attachListeners(detailsController)
-}
-
-function loadDetailsPage(detailsController, listController) {
-    detailsController.render()
-    detailsController.attachListeners(listController)
-}
-
