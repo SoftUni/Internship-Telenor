@@ -6,16 +6,34 @@ const dependencies = [
 define(dependencies, (listController, detailsController) => {
 
 	$(() => {
-		switch (window.location.hash) {
-			case '#details':
+		let page = history.state ? history.state.page : 'list'
+		switch (page) {
+			case 'details':
 				detailsController.render()
 				detailsController.attachListeners(listController)
-				break;
+                break;
 			default:
 				listController.render()
-				listController.attachListeners(detailsController)
-				break;
+        		listController.attachListeners(detailsController)
+                break;
 		}
-	})
+        browserHistoryListener(listController, detailsController)
+    })
 })
+
+function browserHistoryListener(listController, detailsController) {
+    $(window).on('popstate', event => {
+        let currentState = history.state
+		// console.log(event)
+		if (currentState.page === 'list' || !currentState) {
+            listController.render()
+            listController.attachListeners(detailsController)
+		} else if (currentState.page === 'details') {
+            detailsController.render()
+            detailsController.attachListeners(listController)
+		}
+        console.log(event)
+		// console.log(history)
+    })
+}
 
