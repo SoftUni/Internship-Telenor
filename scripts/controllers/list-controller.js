@@ -8,8 +8,8 @@ define(listDependencies, (data, listView) => {
 	listController.render = () => {
         let state = history.state
 
-        let isPageList = state && state.page !== 'list'
-        if (isPageList || !state) {
+        let isPageList = state && state.page === 'list'
+        if (!isPageList) {
             history.pushState({page: 'list'}, "", "?=list")
         } else {
             // If page is refreshed

@@ -24,7 +24,7 @@ define(dependencies, (listController, detailsController) => {
 function browserHistoryListener(listController, detailsController) {
     $(window).on('popstate', event => {
         let currentState = history.state
-		// console.log(event)
+
 		if (currentState.page === 'list' || !currentState) {
             listController.render()
             listController.attachListeners(detailsController)
@@ -32,7 +32,6 @@ function browserHistoryListener(listController, detailsController) {
             detailsController.render()
             detailsController.attachListeners(listController)
 		}
-        console.log(event)
 		// console.log(history)
     })
 }

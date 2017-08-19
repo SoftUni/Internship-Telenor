@@ -9,8 +9,8 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 	detailsController.render = (internId) => {
         let state = history.state
 
-        let isPageDetails = state && state.page !== 'details'
-        if (isPageDetails || !state) {
+        let isPageDetails = state && state.page === 'details'
+        if (!isPageDetails) {
         	// If state and internId are falsy
         	let setInternId = internId || 0
 
