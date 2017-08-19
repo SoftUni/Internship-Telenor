@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
+
 body {
     padding: 0;
     margin: 0;
@@ -91,12 +92,14 @@ body {
                     .card-front {
                         background-color: rgb(239, 239, 239);
                         padding: 15px 25px 0;
+                        display: block;
                     }
                         .card-front .intern-image-wrapper img {
                             width: 120px;
                         }
                         .card-front .intern-name {
                             font-weight: bold;
+                            font-size: 20px;
                             padding: 5px 0;
                             margin: 0;
                         }
@@ -110,9 +113,6 @@ body {
                         background-color: rgb(0, 172, 231);
                         text-align: left;
                     }
-                        .card-back .intern-more-info-btn {
-                            margin: auto;
-                        }
                         .card-back .intern-info {
                             font-style: italic;
                             font-size: 16px;
@@ -122,6 +122,9 @@ body {
                         }
                         .card-back .intern-info::after {
                             content: close-quote;
+                        }
+                        .card-back .intern-more-info-btn {
+                            margin: auto;
                         }
                     .intern-more-info-btn {
                         font-size: 13px;
@@ -161,6 +164,12 @@ body {
     }
 }
 
+@media screen and (max-width: 647px) {
+    .card-back .intern-info {
+        font-size: 15px;
+    }
+}
+
 @media screen and (max-width: 615px) {
     .logo {
         height: 100px;
@@ -174,17 +183,25 @@ body {
     .info-text {
         padding-right: 0;
     }
-    .intern-name {
-        font-size: 16px;
+    .card-front .intern-name {
+        font-size: 20px;
+        /*width: 70%;*/
+        margin: 0 auto;
     }
     .card-wrapper {
         margin: 15px 10px 15px 0;
     }
     .card-back .intern-info {
-        font-size: 14px;
+        font-size: 16px;
     }
     .card-front, .card-back {
-        height: 200px;
+        height: 230px;
+    }
+}
+
+@media screen and (max-width: 545px) {
+    .card-back .intern-info {
+        font-size: 15px;
     }
 }
 
@@ -199,11 +216,11 @@ body {
     body > .list-container {
         font-size: 14px;
     }
-    main > .list-container {
-        width: 80%;
-    }
     header.telenor-nav {
         margin-bottom: 10px;
+    }
+    main > .list-container {
+        width: 80%;
     }
     .hub-image-wrapper {
         margin-bottom: 10px;
@@ -220,7 +237,7 @@ body {
         margin: 10px 0 0 0;
     }
     .card-wrapper:last-child {
-         margin: 10px 0 20px 0;
+        margin: 10px 0 20px 0;
     }
     .card-front, .card-back {
         height: 190px;
@@ -230,9 +247,6 @@ body {
     }
     .info-text-wrapper .info-title {
         font-size: 14px;
-    }
-    .intern-name {
-        font-size: 16px;
     }
     .card-back {
         padding: 15px 10px 0 15px;
@@ -257,5 +271,8 @@ body {
 @media screen and (max-width: 320px) {
     .card-back .intern-info {
         font-size: 14px;
+    }
+    .card-front .intern-name {
+        font-size: 17px;
     }
 }

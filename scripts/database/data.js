@@ -86,7 +86,7 @@ const internQuestionInfo = [
             {
                 id: 0,
                 title: 'Question 1',
-                videoId: '123qwe',
+                videoId: 'n6ryV8WGctE',
                 text: 'Text to question 1'
             },
             {
@@ -103,7 +103,7 @@ const internQuestionInfo = [
             {
                 id: 0,
                 title: 'Question 1',
-                videoId: '123qwe',
+                videoId: 'n6ryV8WGctE',
                 text: 'Text to question 1'
             },
             {
@@ -120,7 +120,7 @@ const internQuestionInfo = [
             {
                 id: 0,
                 title: 'Question 1',
-                videoId: '123qwe',
+                videoId: 'n6ryV8WGctE',
                 text: 'Text to question 1'
             },
             {
@@ -137,7 +137,7 @@ const internQuestionInfo = [
             {
                 id: 0,
                 title: 'Question 1',
-                videoId: '123qwe',
+                videoId: 'n6ryV8WGctE',
                 text: 'Text to question 1'
             },
             {
@@ -154,7 +154,7 @@ const internQuestionInfo = [
             {
                 id: 0,
                 title: 'Question 1',
-                videoId: '123qwe',
+                videoId: 'n6ryV8WGctE',
                 text: 'Text to question 1'
             },
             {
@@ -171,5 +171,5 @@ define({
     getAllInterns: () => interns,
     getSingleIntern: (id) => interns[id],
     getAllInternQuestions: (internId) => internQuestionInfo[internId],
-    getQuestionVideo: (internId, id) => internQuestionInfo[internId].questions[id]
+    getQuestionInfo: (internId, id) => internQuestionInfo[internId].questions[id]
 })
