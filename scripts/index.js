@@ -25,7 +25,7 @@ function browserHistoryListener(listController, detailsController) {
     $(window).on('popstate', event => {
         let currentState = history.state
 
-		if (currentState.page === 'list' || !currentState) {
+		if (!currentState || currentState.page === 'list') {
             listController.render()
             listController.attachListeners(detailsController)
 		} else if (currentState.page === 'details') {
