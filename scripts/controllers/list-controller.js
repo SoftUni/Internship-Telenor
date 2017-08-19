@@ -28,6 +28,9 @@ define(listDependencies, (data, listView) => {
 	listController.attachListeners = detailsController => {
 		detailsListener(detailsController, listController)
 	}
+    listController.removeListeners = () => {
+		removeResizeListener()
+    }
 
 	return listController
 })
@@ -39,4 +42,8 @@ function detailsListener(detailsController, listController) {
 		detailsController.render(internId)
 		detailsController.attachListeners(listController)
 	})
+}
+
+function removeResizeListener() {
+    $(window).off('resize')
 }

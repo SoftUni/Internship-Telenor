@@ -54,6 +54,7 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 function showListListener(listController, detailsController) {
     $('.close').on('click', null, null, () => {
         listController.render()
+		listController.removeListeners()
         listController.attachListeners(detailsController)
     })
 }
