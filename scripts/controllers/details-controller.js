@@ -87,7 +87,7 @@ function renderQuestionInfo(questionId, questionInfoTemplate, data) {
 	console.log('User Id: ', state.internId)
 	// TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
 	let questionData = data.getQuestionInfo(0, questionId)
-
+  
 	if (questionData.id !== state.questionId) {
         history.pushState({
             page: 'details',
