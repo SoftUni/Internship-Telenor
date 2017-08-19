@@ -67,7 +67,7 @@ function renderQuestionInfo(questionId, questionInfoTemplate, data) {
 	let internId = $('#intern-id')[0].value
 	console.log('User Id: ', internId)
 	// TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
-	let questionData = data.getQuestionVideo(0, questionId)
+	let questionData = data.getQuestionInfo(0, questionId)
 
 	let responseHtml = questionInfoTemplate(questionData.videoId, questionData.text)
 
