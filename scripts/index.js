@@ -9,13 +9,10 @@ define(dependencies, (listController, detailsController) => {
 		let page = history.state ? history.state.page : 'list'
 		switch (page) {
 			case 'details':
-				detailsController.render()
-				detailsController.attachListeners(listController)
+                loadDetailsPage(detailsController, listController)
                 break;
 			default:
-				listController.render()
-                listController.removeListeners()
-                listController.attachListeners(detailsController)
+                loadListPage(listController, detailsController)
                 break;
 		}
         browserHistoryListener(listController, detailsController)
@@ -27,13 +24,21 @@ function browserHistoryListener(listController, detailsController) {
         let currentState = history.state
 
 		if (!currentState || currentState.page === 'list') {
-            listController.render()
-            listController.removeListeners()
-            listController.attachListeners(detailsController)
+            loadListPage(listController, detailsController)
 		} else if (currentState.page === 'details') {
-            detailsController.render()
-            detailsController.attachListeners(listController)
+            loadDetailsPage(detailsController, listController)
 		}
     })
+}
+
+function loadListPage(listController, detailsController) {
+    listController.render()
+    listController.removeListeners()
+    listController.attachListeners(detailsController)
+}
+
+function loadDetailsPage(detailsController, listController) {
+    detailsController.render()
+    detailsController.attachListeners(listController)
 }
 
