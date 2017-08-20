@@ -16,14 +16,6 @@ define(listDependencies, (data, listView) => {
 	listController.setState = () => {
         let state = history.state
 
-		// TODO: Below
-        /** Do something when browser go to first history
-		 * where state is null and history is refresh
-		 * to length 2 (starting history) - state {page: 'list'} */
-		if (!state) {
-        	return
-		}
-
         let isPageList = state && state.page === 'list'
         if (!isPageList) {
             history.pushState({page: 'list'}, "", "?=list")
