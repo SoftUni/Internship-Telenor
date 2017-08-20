@@ -6,29 +6,47 @@ const detailsDependencies = [
 
 define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 	let detailsController = {}
-	detailsController.render = (internId) => {
+
+	detailsController.setConfigurations = (listController, internId) => {
+        detailsController.setState(internId)
+        detailsController.render()
+        detailsController.attachListeners(listController)
+    }
+
+	detailsController.setState = (internId, questionId) => {
         let state = history.state
 
         let isPageDetails = state && state.page === 'details'
         if (!isPageDetails) {
-        	// If state and internId are falsy
-        	let setInternId = internId || 0
+            // If page is not details
+            let setInternId = internId || 0
 
             history.pushState({
                 page: 'details',
                 internId: setInternId,
                 questionId: 0 }, "", "?=details")
+        } else if (questionId  && questionId !== state.questionId) {
+            // If page is details and the question is different
+            history.pushState({
+                page: 'details',
+                internId: state.internId,
+                questionId: questionId
+            }, "", "?=details")
         } else {
-        	// If page is refreshed
+            // If page is refreshed
             history.replaceState(state, "", "?=details")
         }
+
         // TODO: Remove after debug state
         // console.log(state)
         // console.log(history)
+    }
 
-		// Needs to be set because setting and getting state is not fast enough
-		let currentInternId = internId || history.state.internId || 0
-		let currentQuestionId = history.state.questionId || 0
+	detailsController.render = () => {
+        let state = history.state
+
+		let currentInternId = state.internId || 0
+		let currentQuestionId = state.questionId || 0
 
 		// Get data from db
         let intern = data.getSingleIntern(currentInternId)
@@ -41,8 +59,9 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
         resizeFrame()
         highLightQuestion($('.question')[currentQuestionId])
 	}
+
 	detailsController.attachListeners = listController => {
-        changeQuestionListener(questionInfoTemplate, data)
+        changeQuestionListener(questionInfoTemplate, data, detailsController)
         showListListener(listController, detailsController)
         resizeListener()
 	}
@@ -53,18 +72,19 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 // Listeners
 function showListListener(listController, detailsController) {
     $('.close').on('click', null, null, () => {
-        listController.render()
-		listController.removeListeners()
-        listController.attachListeners(detailsController)
+        listController.setConfigurations(detailsController)
     })
 }
 
-function changeQuestionListener(questionInfoTemplate, data) {
+function changeQuestionListener(questionInfoTemplate, data, detailsController) {
 	$('.question').on('click', null, null, (e) => {
         const elemLi = e.currentTarget
 
+        let questionId = elemLi.value
+        detailsController.setState(null, questionId)
+
 		highLightQuestion(elemLi)
-		renderQuestionInfo(elemLi.value, questionInfoTemplate, data)
+		renderQuestionInfo(questionInfoTemplate, data)
 		resizeFrame()
 	})
 }
@@ -83,24 +103,12 @@ function resizeFrame() {
 	playerFrame.height(frameHeight)
 }
 
-function renderQuestionInfo(questionId, questionInfoTemplate, data) {
+function renderQuestionInfo(questionInfoTemplate, data) {
     let state = history.state
-	console.log('User Id: ', state.internId)
-	// TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
-	let questionData = data.getQuestionInfo(0, questionId)
-  
-	if (questionData.id !== state.questionId) {
-        history.pushState({
-            page: 'details',
-            internId: state.internId,
-            questionId: questionId
-        }, "", "?=details")
-	}
 
-	// TODO: Remove after debug state
-	// console.log('QuestionId: ', questionId)
-	// console.log(state)
-	// console.log(history)
+    console.log('Change intern Id: ', state.internId)
+	// TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
+	let questionData = data.getQuestionInfo(0, state.questionId)
 
 	let responseHtml = questionInfoTemplate(questionData.videoId, questionData.text)
 

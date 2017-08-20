@@ -5,8 +5,24 @@ const listDependencies = [
 
 define(listDependencies, (data, listView) => {
 	let listController = {}
-	listController.render = () => {
+
+	listController.setConfigurations = (detailsController) => {
+        listController.setState()
+        listController.render()
+        listController.removeListeners()
+        listController.attachListeners(detailsController)
+	}
+
+	listController.setState = () => {
         let state = history.state
+
+		// TODO: Below
+        /** Do something when browser go to first history
+		 * where state is null and history is refresh
+		 * to length 2 (starting history) - state {page: 'list'} */
+		if (!state) {
+        	return
+		}
 
         let isPageList = state && state.page === 'list'
         if (!isPageList) {
@@ -15,19 +31,24 @@ define(listDependencies, (data, listView) => {
             // If page is refreshed
             history.replaceState(state, "", "?=list")
         }
+
         // TODO: Remove after debug state
         // console.log(state)
         // console.log(history)
+    }
 
+	listController.render = () => {
 		// Get data from db
         let interns = data.getAllInterns()
 
 		// Render
         $('#root').html(listView(interns))
 	}
+
 	listController.attachListeners = detailsController => {
 		detailsListener(detailsController, listController)
 	}
+
     listController.removeListeners = () => {
 		removeResizeListener()
     }
@@ -39,8 +60,7 @@ function detailsListener(detailsController, listController) {
 	$('.intern-more-info-btn').on('click', null, null, e => {
 		let internId = e.target.value
 
-		detailsController.render(internId)
-		detailsController.attachListeners(listController)
+		detailsController.setConfigurations(listController, internId)
 	})
 }
 
