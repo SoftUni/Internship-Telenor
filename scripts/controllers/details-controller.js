@@ -1,10 +1,11 @@
 const detailsDependencies = [
 	'../database/data.js',
 	'../views/details.js',
-    '../templates/details-view/section-details-question-info.js'
+    '../templates/details-view/section-details-question-info.js',
+	'../yt-api/iframe-api.js'
 ]
 
-define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
+define(detailsDependencies, (data, detailsView, questionInfoTemplate, ytApi) => {
 	let detailsController = {}
 	detailsController.render = (internId) => {
         let state = history.state
@@ -30,6 +31,9 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 		let currentInternId = internId || history.state.internId || 0
 		let currentQuestionId = history.state.questionId || 0
 
+		//TODO: dummy id for testing. Replace with actual data.
+		let PLAYLIST_ID = 'PLutnSuoPxkdxDj_j4OsT51bQtVGe-zDdK'
+
 		// Get data from db
         let intern = data.getSingleIntern(currentInternId)
 
@@ -37,12 +41,15 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 
 		// Render
         $('#root').html(detailsView(intern, internInfo.questions))
+
+		// Create and load playlist
+		loadPlaylist(ytApi, PLAYLIST_ID)
+
 		// Initial video reframe and highlight
-        resizeFrame()
         highLightQuestion($('.question')[currentQuestionId])
 	}
 	detailsController.attachListeners = listController => {
-        changeQuestionListener(questionInfoTemplate, data)
+        changeQuestionListener(questionInfoTemplate, data, ytApi)
         showListListener(listController, detailsController)
         resizeListener()
 	}
@@ -58,12 +65,13 @@ function showListListener(listController, detailsController) {
     })
 }
 
-function changeQuestionListener(questionInfoTemplate, data) {
+function changeQuestionListener(questionInfoTemplate, data, ytApi) {
 	$('.question').on('click', null, null, (e) => {
         const elemLi = e.currentTarget
 
 		highLightQuestion(elemLi)
 		renderQuestionInfo(elemLi.value, questionInfoTemplate, data)
+		loadVideo(ytApi, elemLi.value)
 		resizeFrame()
 	})
 }
@@ -75,11 +83,12 @@ function resizeListener() {
 }
 
 // Listener dependencies
-function resizeFrame() {
+function resizeFrame(ytApi) {
 	let playerFrame = $('iframe')
-	let frameWidth = playerFrame.width()
-	let frameHeight = Math.trunc(frameWidth / 1.777)
-	playerFrame.height(frameHeight)
+	let width = playerFrame.width()
+	let height = Math.trunc(width / 1.777)
+
+	ytApi.resize(width, height)
 }
 
 function renderQuestionInfo(questionId, questionInfoTemplate, data) {
@@ -96,12 +105,7 @@ function renderQuestionInfo(questionId, questionInfoTemplate, data) {
         }, "", "?=details")
 	}
 
-	// TODO: Remove after debug state
-	// console.log('QuestionId: ', questionId)
-	// console.log(state)
-	// console.log(history)
-
-	let responseHtml = questionInfoTemplate(questionData.videoId, questionData.text)
+	let responseHtml = questionInfoTemplate(questionData.text)
 
 	$('.question-details').html(responseHtml)
 }
@@ -109,4 +113,12 @@ function renderQuestionInfo(questionId, questionInfoTemplate, data) {
 function highLightQuestion(elemLi) {
 	$('.question').removeClass('active')
 	$(elemLi).addClass('active')
+}
+
+function loadPlaylist(ytApi, id) {
+	ytApi.init(id)
+}
+
+function loadVideo(ytApi, index) {
+	ytApi.changeVideo(index)
 }

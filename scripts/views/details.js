@@ -7,14 +7,14 @@ const viewDetailsDependancies = [
 define(viewDetailsDependancies, (internInfoTemplate, asidebarTemplate, questionInfoTemplate) => {
     return (intern, internQuestions) => {
         const questionId = history.state.questionId
-        const loadFirstQuestion = internQuestions[questionId]
+        const questionText = internQuestions[questionId].text
 
         return `
             <div class="details-container">
                 ${internInfoTemplate(intern)}
                 <section class="position-details">
                     <section class="question-details">
-                        ${questionInfoTemplate(loadFirstQuestion.videoId, loadFirstQuestion.text)}
+                        ${questionInfoTemplate(questionText)}
                     </section>
                     ${asidebarTemplate(internQuestions)}
                 </section>
