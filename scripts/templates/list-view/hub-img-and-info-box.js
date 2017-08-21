@@ -1,7 +1,7 @@
 define(() => {
     return () => `
         <div class="hub-image-wrapper">
-            <img src="./public/images/hub-by-telenor-v3.png" alt="telenor image hub" class="hub-image">
+            <img src="./assets/images/hub-by-telenor-v3.png" alt="telenor image hub" class="hub-image">
         </div>
         <section class="info-box">
             <div class="info-text-wrapper">

@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: 'telenor-regular';
-    src: url('../public/fonts/telenor_regular-webfont.woff');
+    src: url('../assets/fonts/telenor_regular-webfont.woff');
 }
 
 @font-face {
     font-family: 'telenor-light';
-    src: url('../public/fonts/telenor_light-webfont.woff');
+    src: url('../assets/fonts/telenor_light-webfont.woff');
 }
 
 body {
@@ -77,6 +77,9 @@ body {
             display: inline-block;
             position: relative;
         }
+            .intern-cards > .title {
+                margin: 10px 0 0;
+            }
             .card-wrapper {
                 width: 30%;
                 display: inline-block;
@@ -154,7 +157,7 @@ body {
 
 @media screen and (max-width: 1000px) {
     .card-back .intern-info {
-        font-size: 15px;
+        font-size: 17px;
     }
 }
 
@@ -163,19 +166,19 @@ body {
         width: 45%;
     }
     .card-back .intern-info {
-        font-size: 16px;
+        font-size: 19px;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .card-back .intern-info {
+        font-size: 18px;
     }
 }
 
 @media screen and (max-width: 680px) {
     .card-back {
         padding: 20px 15px 0 20px;
-    }
-}
-
-@media screen and (max-width: 647px) {
-    .card-back .intern-info {
-        font-size: 15px;
     }
 }
 
@@ -192,25 +195,24 @@ body {
     .info-text {
         padding-right: 0;
     }
+    .card-front, .card-back {
+        height: 230px;
+    }
     .card-front .intern-name {
         font-size: 20px;
-        /*width: 70%;*/
         margin: 0 auto;
     }
     .card-wrapper {
         margin: 15px 10px 15px 0;
     }
     .card-back .intern-info {
-        font-size: 16px;
-    }
-    .card-front, .card-back {
-        height: 230px;
+        font-size: 17px;
     }
 }
 
-@media screen and (max-width: 545px) {
+@media screen and (max-width: 530px) {
     .card-back .intern-info {
-        font-size: 15px;
+        font-size: 16px;
     }
 }
 
@@ -238,7 +240,7 @@ body {
         font-size: 14px;
     }
     .intern-cards .title {
-        font-size: 18px;
+        font-size: 19px;
         margin: 0;
     }
     .card-wrapper {
@@ -255,13 +257,13 @@ body {
         width: 110px;
     }
     .info-text-wrapper .info-title {
-        font-size: 14px;
+        font-size: 16px;
     }
     .card-back {
         padding: 15px 10px 0 15px;
     }
     .card-back .intern-info {
-        font-size: 16px;
+        font-size: 19px;
     }
     .intern-more-info-btn {
         font-size: 12px;
@@ -277,11 +279,17 @@ body {
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 390px) {
     .card-back .intern-info {
-        font-size: 14px;
+        font-size: 18px;
     }
+}
+
+@media screen and (max-width: 320px) {
     .card-front .intern-name {
         font-size: 17px;
+    }
+    .card-back .intern-info {
+        font-size: 16px;
     }
 }
