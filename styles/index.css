@@ -13,7 +13,7 @@
 body {
     padding: 0;
     margin: 0;
-    font: 16px 'Open Sans', sans-serif;
+    font: 16px 'telenor-light', 'Open Sans', sans-serif;
     quotes: '\201c' '\201d';
 }
     header.telenor-nav,
@@ -107,7 +107,6 @@ body {
                             width: 120px;
                         }
                         .card-front .intern-name {
-                            font-family: 'telenor-light', sans-serif;
                             font-weight: bold;
                             font-size: 20px;
                             padding: 5px 0;
@@ -125,7 +124,7 @@ body {
                     }
                         .card-back .intern-info {
                             font-style: italic;
-                            font-size: 16px;
+                            font-size: 18px;
                         }
                         .card-back .intern-info::before {
                             content: open-quote;
