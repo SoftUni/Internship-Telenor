@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
+@font-face {
+    font-family: 'telenor-regular';
+    src: url('../public/fonts/telenor_regular-webfont.woff');
+}
+
+@font-face {
+    font-family: 'telenor-light';
+    src: url('../public/fonts/telenor_light-webfont.woff');
+}
 
 body {
     padding: 0;
@@ -98,6 +107,7 @@ body {
                             width: 120px;
                         }
                         .card-front .intern-name {
+                            font-family: 'telenor-light', sans-serif;
                             font-weight: bold;
                             font-size: 20px;
                             padding: 5px 0;

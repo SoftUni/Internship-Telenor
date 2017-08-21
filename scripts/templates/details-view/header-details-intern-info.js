@@ -2,7 +2,7 @@ define(() => {
     return (intern) => `
         <header class="intern-detail-info">
             <div class="intern-image-wrapper">
-                <img class="img-circle" src="./${intern.picture}" />
+                <img class="img-circle" src="./public/images/interns/${intern.picture}" />
             </div>
             <section class="intern-info">
                 <h2 class="name">${intern.name}</h2>
