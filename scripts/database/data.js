@@ -4,42 +4,42 @@ const interns = [
         name: 'Симона Георгиева',
         department: 'Digital Channels',
         position: 'Digital Channels Specialist',
-        picture: 'cat1.jpg'
+        picture: 'Simona.jpg'
     },
     {
         id: 1,
         name: 'Люба Петрова',
         department: 'ЛП department',
         position: 'ЛП position',
-        picture: 'cat2.jpg'
+        picture: 'Luba.jpg'
     },
     {
         id: 2,
         name: 'Кая Парашкевова',
         department: 'КП department',
         position: 'КП position',
-        picture: 'cat3.jpg'
+        picture: 'Kaya.jpg'
     },
     {
         id: 3,
         name: 'Георги Челенков',
         department: 'ГЧ department',
         position: 'ГЧ Position',
-        picture: 'dog1.jpg'
+        picture: 'Georgi.jpg'
     },
     {
         id: 4,
         name: 'Христо Димитров',
         department: 'ХД department',
         position: 'ХД position',
-        picture: 'dog2.jpg'
+        picture: 'Hristo.jpg'
     },
     {
         id: 5,
         name: 'Дениз Стефанов',
         department: 'ДС department',
         position: 'ДС position',
-        picture: 'dog3.jpg'
+        picture: 'Denis.jpg'
     },
 ]
 

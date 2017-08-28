@@ -4,7 +4,7 @@ define(() => {
         <article class="intern-single-card">
             <div class="card-front">
                 <div class="intern-image-wrapper">
-                    <img class="img-circle" src="./assets/images/interns/${internPic}" />
+                    <img class="intern-pic" src="./assets/images/interns/${internPic}" />
                 </div>
                 <h4 class="intern-name">${name}</h4>
                 <button class="intern-more-info-btn" value="${id}">Виж повече</button>

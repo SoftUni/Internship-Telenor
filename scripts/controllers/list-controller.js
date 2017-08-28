@@ -4,48 +4,48 @@ const listDependencies = [
 ]
 
 define(listDependencies, (data, listView) => {
-	let listController = {}
-
-	listController.setConfigurations = (detailsController) => {
-        listController.setState()
-        listController.render()
-        listController.removeListeners()
-        listController.attachListeners(detailsController)
-	}
-
-	listController.setState = () => {
-        let state = history.state
-
-        let isPageList = state && state.page === 'list'
-        if (!isPageList) {
-            history.pushState({page: 'list'}, "", "?=list")
-        } else {
-            // If page is refreshed
-            history.replaceState(state, "", "?=list")
+	return class {
+	    constructor () {
+	        this.state = history.state
         }
 
-        // TODO: Remove after debug state
-        // console.log(state)
-        // console.log(history)
+        static setConfigurations(detailsController) {
+            this.setState()
+            this.render()
+            this.removeListeners()
+            this.attachListeners(detailsController)
+        }
+
+        static setState () {
+            let isPageList = this.state && this.state.page === 'list'
+            if (!isPageList) {
+                history.pushState({page: 'list'}, "", "?=list")
+            } else {
+                // If page is refreshed
+                history.replaceState(this.state, "", "?=list")
+            }
+
+            // TODO: Remove after debug state
+            // console.log(state)
+            // console.log(history)
+        }
+
+        static attachListeners(detailsController) {
+            detailsListener(detailsController, this)
+        }
+
+        static removeListeners () {
+            removeResizeListener()
+        }
+
+        static render() {
+            // Get data from db
+            let interns = data.getAllInterns()
+
+            // Render
+            $('#root').html(listView(interns))
+        }
     }
-
-	listController.render = () => {
-		// Get data from db
-        let interns = data.getAllInterns()
-
-		// Render
-        $('#root').html(listView(interns))
-	}
-
-	listController.attachListeners = detailsController => {
-		detailsListener(detailsController, listController)
-	}
-
-    listController.removeListeners = () => {
-		removeResizeListener()
-    }
-
-	return listController
 })
 
 function detailsListener(detailsController, listController) {
