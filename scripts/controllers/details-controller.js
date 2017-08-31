@@ -80,6 +80,11 @@ function changeQuestionListener(questionInfoTemplate, data, detailsController) {
 	$('.question').on('click', null, null, (e) => {
         const elemLi = e.currentTarget
 
+        // To not load the current question if it is clicked again
+        if (elemLi.classList.contains('active')) {
+            return
+        }
+        
         let questionId = elemLi.value
         detailsController.setState(null, questionId)
 
