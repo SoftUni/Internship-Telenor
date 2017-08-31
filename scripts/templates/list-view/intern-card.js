@@ -1,5 +1,5 @@
 define(() => {
-    return (id, name, internPic) => `
+    return (id, name, internPic, internDescription) => `
     <div class="card-wrapper">
         <article class="intern-single-card">
             <div class="card-front">
@@ -11,7 +11,7 @@ define(() => {
             </div>
             <div class="card-back">
                 <p class="intern-info">
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old
+                   ${internDescription}
                 </p>
                 <div class="btn-wrapper">
                     <button class="intern-more-info-btn" value="${id}">Виж повече</button>

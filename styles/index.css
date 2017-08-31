@@ -53,20 +53,20 @@ body {
                     font-weight: bold;
                 }
                 .info-text {
-                    padding-right: 15px;
+                    /*padding-right: 15px;*/
                 }
                 .btn-wrapper {
                     display: flex;
                 }
                     .apply-btn {
-                        margin: auto;
+                        margin: auto auto auto 30px;
                         font-size: 16px;
-                        padding: 5px 13px;
+                        font-weight: bold;
+                        padding: 7px 13px 6px;
                         background: linear-gradient(
                                 45deg,
                                 rgba(117,0,113,1) 0%,
-                                rgba(255,0,121,1) 75%,
-                                rgba(255,0,121,1) 100%);
+                                rgba(255,0,121,1) 50%);
                         border: none;
                         color: #ffffff;
                         text-transform: uppercase;
@@ -148,12 +148,12 @@ body {
                         }
                     .intern-more-info-btn {
                         font-size: 13px;
-                        padding: 5px 13px;
+                        font-weight: bold;
+                        padding: 3px 9px 2px;
                         background: linear-gradient(
                                 45deg,
                                 rgba(117,0,113,1) 0%,
-                                rgba(255,0,121,1) 75%,
-                                rgba(255,0,121,1) 100%);
+                                rgba(255,0,121,1) 50%);
                         border: none;
                         color: #ffffff;
                         text-transform: uppercase;
@@ -203,6 +203,9 @@ body {
     }
     .info-text {
         padding-right: 0;
+    }
+    .apply-btn {
+        margin: auto;
     }
     .card-front, .card-back {
         height: 230px;

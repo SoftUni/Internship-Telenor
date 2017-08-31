@@ -4,6 +4,7 @@ const interns = [
         name: 'Симона Георгиева',
         department: 'Digital Channels',
         position: 'Digital Channels Specialist',
+        description: 'Little Miss Sunshine ти намига всеки път когато отвориш мобилното приложение My Telenor',
         picture: 'Simona.jpg'
     },
     {
@@ -11,6 +12,7 @@ const interns = [
         name: 'Люба Петрова',
         department: 'ЛП department',
         position: 'ЛП position',
+        description: 'Пикасо – открива нови перспективи във визуализацията на данни',
         picture: 'Luba.jpg'
     },
     {
@@ -18,6 +20,7 @@ const interns = [
         name: 'Кая Парашкевова',
         department: 'КП department',
         position: 'КП position',
+        description: 'Кара офис процесите да танцуват в дигиталния свят',
         picture: 'Kaya.jpg'
     },
     {
@@ -25,6 +28,7 @@ const interns = [
         name: 'Георги Челенков',
         department: 'ГЧ department',
         position: 'ГЧ Position',
+        description: 'Нинджа програмист – кодира неуморно в големите проекти на Теленор',
         picture: 'Georgi.jpg'
     },
     {
@@ -32,6 +36,7 @@ const interns = [
         name: 'Христо Димитров',
         department: 'ХД department',
         position: 'ХД position',
+        description: 'Шерлок Холмс на данните',
         picture: 'Hristo.jpg'
     },
     {
@@ -39,6 +44,7 @@ const interns = [
         name: 'Дениз Стефанов',
         department: 'ДС department',
         position: 'ДС position',
+        description: 'Професор Х в извличането на важна информация и откриването на данни',
         picture: 'Denis.jpg'
     },
 ]

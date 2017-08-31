@@ -7,7 +7,7 @@ define(['./intern-card.js'], internCardTemplate => {
                 </h2>`
 
         for (let intern of interns) {
-            generateInternsCards += internCardTemplate(intern.id, intern.name, intern.picture)
+            generateInternsCards += internCardTemplate(intern.id, intern.name, intern.picture, intern.description)
         }
 
         generateInternsCards += `</section>`
