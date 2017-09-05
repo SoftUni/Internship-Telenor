@@ -213,12 +213,6 @@ main {
 	}
 }
 @media screen and (max-width: 450px) {
-	.intern-detail-info {
-		flex-direction: column;
-	}
-	.intern-detail-info > * {
-		padding: 10px 0;
-	}
 	.back-btn-wrapper {
 		height: inherit;
 	}
