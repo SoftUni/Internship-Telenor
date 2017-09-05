@@ -27,7 +27,6 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
                 internId: setInternId,
                 questionId: '0' }, "", "?=details")
         } else if (questionId && questionId !== state.questionId) {
-            console.log(questionId)
             // If page is details and the question is different
             history.pushState({
                 page: 'details',

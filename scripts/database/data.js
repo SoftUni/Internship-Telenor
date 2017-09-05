@@ -80,7 +80,7 @@ const internQuestionInfo = [
             },
             {
                 id: '4',
-                title: 'Какво ще посъветваш бъдещите стажанти',
+                title: 'Какво би посъветвала бъдещите стажанти',
                 videoId: 'es1D1lWI3x8',
                 text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
@@ -90,16 +90,34 @@ const internQuestionInfo = [
         internId: 1,
         questions: [
             {
-                id: 0,
-                title: 'Question 1',
+                id: '0',
+                title: 'Защо избра да кандидатстваш в Теленор',
                 videoId: 'n6ryV8WGctE',
-                text: 'Text to question 1'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 1,
-                title: 'Question 2',
+                id: '1',
+                title: 'Как би описала атмосферата в офиса',
                 videoId: 'jpmWHPpaiso',
-                text: 'Text to question 2'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '2',
+                title: 'В какъв проект участваш',
+                videoId: 'FkOyTwAE4HE',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '3',
+                title: 'Разкажи ми за твой успех по време на стажа',
+                videoId: 'ocB530rxUFA',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '4',
+                title: 'Какво би посъветвала бъдещите стажанти',
+                videoId: 'es1D1lWI3x8',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
@@ -107,16 +125,34 @@ const internQuestionInfo = [
         internId: 2,
         questions: [
             {
-                id: 0,
-                title: 'Question 1',
+                id: '0',
+                title: 'Защо избра да кандидатстваш в Теленор',
                 videoId: 'n6ryV8WGctE',
-                text: 'Text to question 1'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 1,
-                title: 'Question 2',
+                id: '1',
+                title: 'Какви са впечатленията ти за колегите ти',
                 videoId: 'jpmWHPpaiso',
-                text: 'Text to question 2'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '2',
+                title: 'В какъв проект участваш',
+                videoId: 'FkOyTwAE4HE',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '3',
+                title: 'Разкажи ми за твой успех по време на стажа',
+                videoId: 'ocB530rxUFA',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '4',
+                title: 'Какво би посъветвала бъдещите стажанти',
+                videoId: 'es1D1lWI3x8',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
@@ -124,16 +160,34 @@ const internQuestionInfo = [
         internId: 3,
         questions: [
             {
-                id: 0,
-                title: 'Question 1',
+                id: '0',
+                title: 'Защо избра да кандидатстваш в Теленор',
                 videoId: 'n6ryV8WGctE',
-                text: 'Text to question 1'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 1,
-                title: 'Question 2',
+                id: '1',
+                title: 'Какво научи от стажа в Теленор',
                 videoId: 'jpmWHPpaiso',
-                text: 'Text to question 2'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '2',
+                title: 'Как би описал работата в екипа',
+                videoId: 'FkOyTwAE4HE',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '3',
+                title: 'Разкажи ми за твой успех по време на стажа',
+                videoId: 'ocB530rxUFA',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '4',
+                title: 'Какво ще посъветваш бъдещите стажанти',
+                videoId: 'es1D1lWI3x8',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
@@ -141,16 +195,34 @@ const internQuestionInfo = [
         internId: 4,
         questions: [
             {
-                id: 0,
-                title: 'Question 1',
+                id: '0',
+                title: 'Защо избра да кандидатстваш в Теленор',
                 videoId: 'n6ryV8WGctE',
-                text: 'Text to question 1'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 1,
-                title: 'Question 2',
+                id: '1',
+                title: 'Как оценяваш екипа си',
                 videoId: 'jpmWHPpaiso',
-                text: 'Text to question 2'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '2',
+                title: 'В какъв проект участваш',
+                videoId: 'FkOyTwAE4HE',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '3',
+                title: 'Разкажи ми за твой успех по време на стажа',
+                videoId: 'ocB530rxUFA',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '4',
+                title: 'Какво би посъветвал бъдещите стажанти',
+                videoId: 'es1D1lWI3x8',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
@@ -158,16 +230,34 @@ const internQuestionInfo = [
         internId: 5,
         questions: [
             {
-                id: 0,
-                title: 'Question 1',
+                id: '0',
+                title: 'Защо избра да кандидатстваш в Теленор',
                 videoId: 'n6ryV8WGctE',
-                text: 'Text to question 1'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 1,
-                title: 'Question 2',
+                id: '1',
+                title: 'Как би описал екипа и средата за работа в Теленор',
                 videoId: 'jpmWHPpaiso',
-                text: 'Text to question 2'
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '2',
+                title: 'В какъв проект участваш',
+                videoId: 'FkOyTwAE4HE',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '3',
+                title: 'Промени ли се мнението ти за Теленор след края на стажа',
+                videoId: 'ocB530rxUFA',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '4',
+                title: 'Какво ще посъветваш бъдещите стажанти',
+                videoId: 'es1D1lWI3x8',
+                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
