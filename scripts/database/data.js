@@ -55,31 +55,31 @@ const internQuestionInfo = [
         internId: 0,
         questions: [
             {
-                id: 0,
+                id: '0',
                 title: 'Защо избра да кандидатстваш в Теленор',
                 videoId: 'n6ryV8WGctE',
                 text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 1,
+                id: '1',
                 title: 'Какви са впечатленията ти за колегите ти',
                 videoId: 'jpmWHPpaiso',
                 text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 2,
+                id: '2',
                 title: 'В какъв проект участваш',
                 videoId: 'FkOyTwAE4HE',
                 text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 3,
+                id: '3',
                 title: 'Разкажи ми за твой успех по време на стажа',
                 videoId: 'ocB530rxUFA',
                 text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
-                id: 4,
+                id: '4',
                 title: 'Какво ще посъветваш бъдещите стажанти',
                 videoId: 'es1D1lWI3x8',
                 text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
@@ -98,7 +98,7 @@ const internQuestionInfo = [
             {
                 id: 1,
                 title: 'Question 2',
-                videoId: '234qwe',
+                videoId: 'jpmWHPpaiso',
                 text: 'Text to question 2'
             }
         ]
@@ -115,7 +115,7 @@ const internQuestionInfo = [
             {
                 id: 1,
                 title: 'Question 2',
-                videoId: '234qwe',
+                videoId: 'jpmWHPpaiso',
                 text: 'Text to question 2'
             }
         ]
@@ -132,7 +132,7 @@ const internQuestionInfo = [
             {
                 id: 1,
                 title: 'Question 2',
-                videoId: '234qwe',
+                videoId: 'jpmWHPpaiso',
                 text: 'Text to question 2'
             }
         ]
@@ -149,7 +149,7 @@ const internQuestionInfo = [
             {
                 id: 1,
                 title: 'Question 2',
-                videoId: '234qwe',
+                videoId: 'jpmWHPpaiso',
                 text: 'Text to question 2'
             }
         ]
@@ -166,7 +166,7 @@ const internQuestionInfo = [
             {
                 id: 1,
                 title: 'Question 2',
-                videoId: '234qwe',
+                videoId: 'jpmWHPpaiso',
                 text: 'Text to question 2'
             }
         ]

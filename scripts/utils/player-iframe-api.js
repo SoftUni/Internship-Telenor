@@ -1,41 +1,45 @@
-// Continuation from html file for testing with Player API
-// 2. This code loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
+define(() => {
+  return () => {
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
 
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var firstScriptTag = document.getElementById('ytplayer');
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '390',
-    width: '640',
-    videoId: 'M7lc1UVf-VE',
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-}
+      var player;
+      function onYouTubeIframeAPIReady(internVideoIdsArr, currentQuestionIndex) {
+          let playlistVideoIdsStr = internVideoIdsArr.join(',')
 
-// 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-  event.target.playVideo();
-}
+          player = new YT.Player('ytplayer', {
+              playerVars: {
+                  'playlist': playlistVideoIdsStr,
+                  'rel': 0,
+                  'controls': 0,
+                  'showinfo': 0
+              },
+              events: {
+                  'onStateChange': e => onPlayerStateChange(e, currentQuestionIndex)
+              }
+          });
+      }
 
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-var done = false;
-function onPlayerStateChange(event) {
-  if (event.data === YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 6000);
-    done = true;
+      function onPlayerStateChange(event, index) {
+          if (event.data === YT.PlayerState.CUED) {
+              player.playVideoAt(Number(index))
+          }
+          if (event.data === YT.PlayerState.ENDED) {
+              changeToNextQuestion(player.getPlaylistIndex())
+          }
+      }
+
+      function changeToNextQuestion(nextQuestionIndex) {
+          $('.question').eq(nextQuestionIndex).trigger('click')
+      }
+
+      function changeQuestion(videoPlaylistIndex) {
+          player.playVideoAt(Number(videoPlaylistIndex))
+      }
+
+      return { onYouTubeIframeAPIReady, changeQuestion }
   }
-}
-function stopVideo() {
-  player.stopVideo();
-}
+})
