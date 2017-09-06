@@ -1,11 +1,5 @@
 define(() => {
   return () => {
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-
-      var firstScriptTag = document.getElementById('ytplayer');
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
       var player;
       function onYouTubeIframeAPIReady(internVideoIdsArr, currentQuestionIndex) {
           let playlistVideoIdsStr = internVideoIdsArr.join(',')
