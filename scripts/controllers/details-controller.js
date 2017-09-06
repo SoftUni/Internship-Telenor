@@ -6,70 +6,82 @@ const detailsDependencies = [
 ]
 
 define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi) => {
-	let detailsController = {}
-
-	detailsController.setConfigurations = (listController, internId) => {
-        detailsController.setState(internId)
-        detailsController.render()
-        detailsController.attachListeners(listController)
-    }
-
-	detailsController.setState = (internId, questionId) => {
-        let state = history.state
-
-        let isPageDetails = state && state.page === 'details'
-        if (!isPageDetails) {
-            // If page is not details
-            let setInternId = internId || '0'
-
-            history.pushState({
-                page: 'details',
-                internId: setInternId,
-                questionId: '0' }, "", "?=details")
-        } else if (questionId && questionId !== state.questionId) {
-            // If page is details and the question is different
-            history.pushState({
-                page: 'details',
-                internId: state.internId,
-                questionId: questionId
-            }, "", "?=details")
-        } else {
-            // If page is refreshed
-            history.replaceState(state, "", "?=details")
+    return class detailsController {
+        static setConfigurations (listController, internId) {
+            this.setState(internId)
+            this.getDataFromDb()
+            this.render()
+            this.initDetailsPageConfigs()
+            this.attachListeners(listController)
         }
-        // TODO: Remove after debug state
-        // console.log(state)
-        // console.log(history)
+
+        static setState (internId, questionId) {
+            // Get current browser state
+            this.state = history.state
+
+            let isPageDetails = this.state && this.state.page === 'details'
+            if (!isPageDetails) {
+                // If page is not details
+                let setInternId = internId || '0'
+
+                history.pushState({
+                    page: 'details',
+                    internId: setInternId,
+                    questionId: '0' }, "", "?=details")
+            } else if (questionId && questionId !== this.state.questionId) {
+                // If page is details and the question is different
+                history.pushState({
+                    page: 'details',
+                    internId: this.state.internId,
+                    questionId: questionId
+                }, "", "?=details")
+            } else {
+                // If page is refreshed
+                history.replaceState(this.state, "", "?=details")
+            }
+
+            // Change to new browser state
+            this.state = history.state
+        }
+
+        static getDataFromDb () {
+            this.internInfo = data.getSingleIntern(this.state.internId)
+            this.internQuestionsData = data.getAllInternQuestions(this.state.internId).questions
+            this.singleQuestionData = data.getQuestionInfo(this.state.internId, this.state.questionId)
+        }
+
+        static render () {
+            // Load details view page skeleton
+            let detailsViewHtml = detailsView(this.internInfo, this.internQuestionsData)
+
+            // Render
+            $('#root').html(detailsViewHtml)
+            // Load iframe playlist
+            this.renderIframePlaylist()
+        }
+
+        static renderIframePlaylist () {
+            this.iframeApiModule = playerApi()
+
+            let questionId = this.state.questionId
+            let loadIframePlayerFunc = this.iframeApiModule.readyPlayer
+            let allVideoIdsArr = this.internQuestionsData.map(q => q.videoId)
+
+            loadIframePlayerFunc(allVideoIdsArr, questionId)
+        }
+
+        static initDetailsPageConfigs () {
+            // Initial resize iframe and highlight li element
+            resizeFrame()
+            highLightQuestion($('.question')[this.state.questionId])
+        }
+
+        static attachListeners (listController) {
+            changeQuestionListener(questionInfoTemplate, data, this)
+            showListListener(listController, this)
+            resizeListener()
+        }
     }
-
-	detailsController.render = () => {
-        let state = history.state
-
-		let currentInternId = state.internId || 0
-		let currentQuestionId = state.questionId || 0
-
-		// Get data from db
-        let intern = data.getSingleIntern(currentInternId)
-
-        let internInfo = data.getAllInternQuestions(intern.id)
-
-		// Render
-        $('#root').html(detailsView(intern, internInfo.questions))
-		// Initial video reframe and highlight
-        resizeFrame()
-        highLightQuestion($('.question')[currentQuestionId])
-	}
-
-	detailsController.attachListeners = listController => {
-        let playerApiObj = playerApi()
-
-        changeQuestionListener(questionInfoTemplate, data, detailsController, playerApiObj.changeQuestion)
-        showListListener(listController, detailsController)
-        ytPlayerListener(playerApiObj.onYouTubeIframeAPIReady, data)
-        resizeListener()
-	}
-
-    return detailsController
 })
 
 // Listeners
@@ -79,7 +91,7 @@ function showListListener(listController, detailsController) {
     })
 }
 
-function changeQuestionListener(questionInfoTemplate, data, detailsController, iframeChangeVideo) {
+function changeQuestionListener(questionInfoTemplate, data, detailsController) {
 	$('.question').on('click', e => {
         const elemLi = e.currentTarget
 
@@ -92,21 +104,9 @@ function changeQuestionListener(questionInfoTemplate, data, detailsController, i
         detailsController.setState(null, questionIdIndex)
 
 		highLightQuestion(elemLi)
-        iframeChangeVideo(questionIdIndex)
-		renderQuestionInfo(questionInfoTemplate, data)
-		resizeFrame()
+        detailsController.iframeApiModule.changeQuestion(questionIdIndex)
+		renderQuestionInfo(questionInfoTemplate, detailsController.singleQuestionData)
 	})
-}
-
-function ytPlayerListener(readyPlayerApi, data) {
-    let currentState = history.state
-
-    let internQuestionsIds = data
-        .getAllInternQuestions(currentState.internId)
-        .questions
-        .map(q => q.videoId)
-
-    readyPlayerApi(internQuestionsIds, currentState.questionId)
 }
 
 function resizeListener() {
@@ -123,10 +123,7 @@ function resizeFrame() {
 	playerFrame.height(frameHeight)
 }
 
-function renderQuestionInfo(questionInfoTemplate, data) {
-    let state = history.state
-
-	let questionData = data.getQuestionInfo(state.internId, state.questionId)
+function renderQuestionInfo(questionInfoTemplate, questionData) {
 	let responseHtml = questionInfoTemplate(questionData.text)
 
 	$('.description-wrapper').html(responseHtml)

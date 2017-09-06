@@ -34,6 +34,6 @@ define(() => {
           player.playVideoAt(Number(videoPlaylistIndex))
       }
 
-      return { onYouTubeIframeAPIReady, changeQuestion }
+      return { readyPlayer: onYouTubeIframeAPIReady, changeQuestion }
   }
 })

@@ -4,13 +4,10 @@ const listDependencies = [
 ]
 
 define(listDependencies, (data, listView) => {
-	return class {
-	    constructor () {
-	        this.state = history.state
-        }
-
+	return class listController {
         static setConfigurations(detailsController) {
             this.setState()
+            this.getDataFromDb()
             this.render()
             this.removeListeners()
             this.attachListeners(detailsController)
@@ -25,9 +22,11 @@ define(listDependencies, (data, listView) => {
                 history.replaceState(this.state, "", "?=list")
             }
 
-            // TODO: Remove after debug state
-            // console.log(state)
-            // console.log(history)
+            this.state = history.state
+        }
+
+        static getDataFromDb () {
+            this.internsData = data.getAllInterns()
         }
 
         static attachListeners(detailsController) {
@@ -39,11 +38,8 @@ define(listDependencies, (data, listView) => {
         }
 
         static render() {
-            // Get data from db
-            let interns = data.getAllInterns()
-
             // Render
-            $('#root').html(listView(interns))
+            $('#root').html(listView(this.internsData))
         }
     }
 })

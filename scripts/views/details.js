@@ -6,8 +6,7 @@ const viewDetailsDependancies = [
 
 define(viewDetailsDependancies, (internInfoTemplate, asidebarTemplate, questionInfoTemplate) => {
     return (intern, internQuestions) => {
-        const questionId = history.state.questionId
-        const loadFirstQuestion = internQuestions[questionId]
+        const loadFirstQuestion = internQuestions[0]
 
         return `
             <div class="details-container">
