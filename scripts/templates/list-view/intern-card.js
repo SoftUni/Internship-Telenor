@@ -1,20 +1,20 @@
 define(() => {
-    return (id, name, internPic) => `
+    return (intern) => `
     <div class="card-wrapper">
         <article class="intern-single-card">
             <div class="card-front">
                 <div class="intern-image-wrapper">
-                    <img class="img-circle" src="./assets/images/interns/${internPic}" />
+                    <img class="intern-pic" src="./assets/images/interns/${intern.picture}" />
                 </div>
-                <h4 class="intern-name">${name}</h4>
-                <button class="intern-more-info-btn" value="${id}">Виж повече</button>
+                <h4 class="intern-name">${intern.name}</h4>
+                <button class="intern-more-info-btn" value="${intern.id}">Виж повече</button>
             </div>
             <div class="card-back">
                 <p class="intern-info">
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old
+                   ${intern.description}
                 </p>
                 <div class="btn-wrapper">
-                    <button class="intern-more-info-btn" value="${id}">Виж повече</button>
+                    <button class="intern-more-info-btn" value="${intern.id}">Виж повече</button>
                 </div>
             </div>
         </article>

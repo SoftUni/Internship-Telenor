@@ -1,7 +1,7 @@
 define(() => {
     return () => `
         <div class="hub-image-wrapper">
-            <img src="./assets/images/hub-by-telenor-v3.png" alt="telenor image hub" class="hub-image">
+            <img src="./assets/images/interns-hub.jpg" alt="telenor image hub" class="hub-image">
         </div>
         <section class="info-box">
             <div class="info-text-wrapper">
@@ -9,7 +9,7 @@ define(() => {
                     Lorem Ipsum is simply dummy text of the print
                 </h4>
                 <p class="info-text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery
+                    Стажът в Теленор съвсем не е като другите стажове, понеже Теленор съвсем не е като другите компании. Ако вече ти e интересно - кандидатствай. Ако се съмняваш и искаш да разбереш повече – пак кандидатствай. Стажът е 12 месеца, платен е, и е за такива като теб – любопитни, умни, знаещи, отворени млади хора. А ето и какво казват част от сегашните ни стажанти.
                 </p>
             </div>
             <div class="btn-wrapper">

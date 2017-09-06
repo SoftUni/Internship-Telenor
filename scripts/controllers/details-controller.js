@@ -1,10 +1,11 @@
 const detailsDependencies = [
 	'../database/data.js',
 	'../views/details.js',
-    '../templates/details-view/section-details-question-info.js'
+    '../templates/details-view/section-details-question-info.js',
+    '../utils/player-iframe-api.js'
 ]
 
-define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
+define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi) => {
 	let detailsController = {}
 
 	detailsController.setConfigurations = (listController, internId) => {
@@ -19,13 +20,13 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
         let isPageDetails = state && state.page === 'details'
         if (!isPageDetails) {
             // If page is not details
-            let setInternId = internId || 0
+            let setInternId = internId || '0'
 
             history.pushState({
                 page: 'details',
                 internId: setInternId,
-                questionId: 0 }, "", "?=details")
-        } else if (questionId  && questionId !== state.questionId) {
+                questionId: '0' }, "", "?=details")
+        } else if (questionId && questionId !== state.questionId) {
             // If page is details and the question is different
             history.pushState({
                 page: 'details',
@@ -36,7 +37,6 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
             // If page is refreshed
             history.replaceState(state, "", "?=details")
         }
-
         // TODO: Remove after debug state
         // console.log(state)
         // console.log(history)
@@ -61,8 +61,11 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate) => {
 	}
 
 	detailsController.attachListeners = listController => {
-        changeQuestionListener(questionInfoTemplate, data, detailsController)
+        let playerApiObj = playerApi()
+
+        changeQuestionListener(questionInfoTemplate, data, detailsController, playerApiObj.changeQuestion)
         showListListener(listController, detailsController)
+        ytPlayerListener(playerApiObj.onYouTubeIframeAPIReady, data)
         resizeListener()
 	}
 
@@ -76,17 +79,34 @@ function showListListener(listController, detailsController) {
     })
 }
 
-function changeQuestionListener(questionInfoTemplate, data, detailsController) {
-	$('.question').on('click', null, null, (e) => {
+function changeQuestionListener(questionInfoTemplate, data, detailsController, iframeChangeVideo) {
+	$('.question').on('click', e => {
         const elemLi = e.currentTarget
 
-        let questionId = elemLi.value
-        detailsController.setState(null, questionId)
+        // To not load the current question if it is clicked again
+        if (elemLi.classList.contains('active')) {
+            return
+        }
+
+        let questionIdIndex = elemLi.value.toString()
+        detailsController.setState(null, questionIdIndex)
 
 		highLightQuestion(elemLi)
+        iframeChangeVideo(questionIdIndex)
 		renderQuestionInfo(questionInfoTemplate, data)
 		resizeFrame()
 	})
+}
+
+function ytPlayerListener(readyPlayerApi, data) {
+    let currentState = history.state
+
+    let internQuestionsIds = data
+        .getAllInternQuestions(currentState.internId)
+        .questions
+        .map(q => q.videoId)
+
+    readyPlayerApi(internQuestionsIds, currentState.questionId)
 }
 
 function resizeListener() {
@@ -106,13 +126,10 @@ function resizeFrame() {
 function renderQuestionInfo(questionInfoTemplate, data) {
     let state = history.state
 
-    console.log('Change intern Id: ', state.internId)
-	// TODO: internId needs to be passed as first param to getQuestionVideo when the db is full
-	let questionData = data.getQuestionInfo(0, state.questionId)
+	let questionData = data.getQuestionInfo(state.internId, state.questionId)
+	let responseHtml = questionInfoTemplate(questionData.text)
 
-	let responseHtml = questionInfoTemplate(questionData.videoId, questionData.text)
-
-	$('.question-details').html(responseHtml)
+	$('.description-wrapper').html(responseHtml)
 }
 
 function highLightQuestion(elemLi) {
