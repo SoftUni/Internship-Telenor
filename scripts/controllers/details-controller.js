@@ -1,7 +1,7 @@
 const detailsDependencies = [
 	'../database/data.js',
-	'../views/details.js',
-    '../templates/details-view/section-details-question-info.js',
+	'../views/details/details.js',
+    '../views/details/templates/section-details-question-info.js',
     '../utils/player-iframe-api.js'
 ]
 
@@ -45,14 +45,15 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
         }
 
         static getDataFromDb () {
-            this.internInfo = data.getSingleIntern(this.state.internId)
-            this.internQuestionsData = data.getAllInternQuestions(this.state.internId).questions
-            this.singleQuestionData = data.getQuestionInfo(this.state.internId, this.state.questionId)
+            this.db = {}
+            this.db.internInfo = data.getSingleIntern(this.state.internId)
+            this.db.internQuestionsData = data.getAllInternQuestions(this.state.internId).questions
+            this.db.singleQuestionData = data.getQuestionInfo(this.state.internId, this.state.questionId)
         }
 
         static render () {
             // Load details view page skeleton
-            let detailsViewHtml = detailsView(this.internInfo, this.internQuestionsData)
+            let detailsViewHtml = detailsView(this.db.internInfo, this.db.internQuestionsData)
 
             // Render
             $('#root').html(detailsViewHtml)
@@ -65,7 +66,7 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
 
             let questionId = this.state.questionId
             let loadIframePlayerFunc = this.iframeApiModule.readyPlayer
-            let allVideoIdsArr = this.internQuestionsData.map(q => q.videoId)
+            let allVideoIdsArr = this.db.internQuestionsData.map(q => q.videoId)
 
             loadIframePlayerFunc(allVideoIdsArr, questionId)
         }
@@ -77,7 +78,7 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
         }
 
         static attachListeners (listController) {
-            changeQuestionListener(questionInfoTemplate, data, this)
+            changeQuestionListener(questionInfoTemplate, this)
             showListListener(listController, this)
             resizeListener()
         }
@@ -91,7 +92,7 @@ function showListListener(listController, detailsController) {
     })
 }
 
-function changeQuestionListener(questionInfoTemplate, data, detailsController) {
+function changeQuestionListener(questionInfoTemplate, detailsController) {
 	$('.question').on('click', e => {
         const elemLi = e.currentTarget
 
@@ -105,7 +106,7 @@ function changeQuestionListener(questionInfoTemplate, data, detailsController) {
 
 		highLightQuestion(elemLi)
         detailsController.iframeApiModule.changeQuestion(questionIdIndex)
-		renderQuestionInfo(questionInfoTemplate, detailsController.singleQuestionData)
+		renderQuestionInfo(questionInfoTemplate, detailsController.db.singleQuestionData)
 	})
 }
 

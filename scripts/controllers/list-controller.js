@@ -1,6 +1,6 @@
 const listDependencies = [
 	'../database/data.js',
-	'../views/list.js'
+	'../views/list/list.js'
 ]
 
 define(listDependencies, (data, listView) => {
