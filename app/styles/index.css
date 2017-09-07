@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('details.css');
 
 @font-face {
     font-family: 'telenor-regular';
@@ -13,7 +14,7 @@
 body {
     padding: 0;
     margin: 0;
-    font: 16px 'telenor-light', 'Open Sans', sans-serif;
+    font: 16px 'telenor-light', 'telenor-regular', 'Open Sans', sans-serif;
     quotes: '\201c' '\201d';
 }
     header.telenor-nav,
@@ -52,9 +53,6 @@ body {
                 .info-title {
                     font-weight: bold;
                 }
-                .info-text {
-                    /*padding-right: 15px;*/
-                }
                 .btn-wrapper {
                     display: flex;
                 }
@@ -87,6 +85,9 @@ body {
                 perspective: 1200px;
                 margin: 20px 15px 20px 0;
             }
+            .card-wrapper:nth-child(3n+1) {
+                margin: 20px 0;
+            }
             .card-wrapper:hover .intern-single-card {
                 transform: rotateY(-180deg);
             }
@@ -96,6 +97,7 @@ body {
                     transform-style: preserve-3d;
                 }
                     .card-front, .card-back {
+                        border-radius: 2px;
                         height: 210px;
                         width: 100%;
                         backface-visibility: hidden;
@@ -105,7 +107,6 @@ body {
                     .card-front {
                         background-color: rgb(239, 239, 239);
                         padding: 15px 25px 0;
-                        display: block;
                     }
                         .card-front .intern-image-wrapper {
                             margin: auto;
@@ -214,8 +215,11 @@ body {
         font-size: 20px;
         margin: 0 auto;
     }
-    .card-wrapper {
+    .card-wrapper:nth-child(even) {
         margin: 15px 10px 15px 0;
+    }
+    .card-wrapper:nth-child(odd) {
+        margin: 15px 0 15px 0;
     }
     .card-back .intern-info {
         font-size: 17px;
@@ -255,11 +259,11 @@ body {
         font-size: 19px;
         margin: 0;
     }
-    .card-wrapper {
+    .intern-cards > .card-wrapper {
         width: 90%;
         margin: 10px 0 0 0;
     }
-    .card-wrapper:last-child {
+    .intern-cards > .card-wrapper:last-child {
         margin: 10px 0 20px 0;
     }
     .card-front, .card-back {
