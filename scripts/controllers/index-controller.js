@@ -4,15 +4,13 @@ const indexDependencies = [
 ]
 
 define(indexDependencies, (listController, detailsController) => {
-    let indexController = {}
+    return class indexController {
+        static loadListPage () {
+            listController.setConfigurations(detailsController)
+        }
 
-    indexController.loadListPage = () => {
-        listController.setConfigurations(detailsController)
+        static loadDetailsPage () {
+            detailsController.setConfigurations(listController)
+        }
     }
-
-    indexController.loadDetailsPage = () => {
-        detailsController.setConfigurations(listController)
-    }
-
-    return indexController
 })

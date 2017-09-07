@@ -1,13 +1,12 @@
 const viewDetailsDependancies = [
-    '../templates/details-view/header-details-intern-info.js',
-    '../templates/details-view/aside-details-questions.js',
-    '../templates/details-view/section-details-question-info.js'
+    './templates/header-details-intern-info.js',
+    './templates/aside-details-questions.js',
+    './templates/section-details-question-info.js'
 ]
 
 define(viewDetailsDependancies, (internInfoTemplate, asidebarTemplate, questionInfoTemplate) => {
     return (intern, internQuestions) => {
-        const questionId = history.state.questionId
-        const loadFirstQuestion = internQuestions[questionId]
+        const loadFirstQuestion = internQuestions[0]
 
         return `
             <div class="details-container">
