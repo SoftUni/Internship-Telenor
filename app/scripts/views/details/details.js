@@ -5,22 +5,15 @@ const viewDetailsDependancies = [
 ]
 
 define(viewDetailsDependancies, (internInfoTemplate, asidebarTemplate, questionInfoTemplate) => {
-    return (intern, internQuestions) => {
-        const loadFirstQuestion = internQuestions[0]
-
+    return (dataObj) => {
         return `
             <div class="details-container">
-                ${internInfoTemplate(intern)}
+                ${internInfoTemplate(dataObj.internInfo)}
                 <section class="position-details">
                     <section class="question-details">
-                    <div class="player-wrapper">
-                        <div id="ytplayer"></div>
-                    </div>
-                    <div class="description-wrapper">
-                        ${questionInfoTemplate(loadFirstQuestion.text)}
-                    </div>
+                        ${questionInfoTemplate(dataObj.currentQuestionText)}
                     </section>
-                    ${asidebarTemplate(internQuestions)}
+                    ${asidebarTemplate(dataObj.allInternQuestions)}
                 </section>
             </div>`
     }

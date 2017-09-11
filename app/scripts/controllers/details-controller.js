@@ -47,28 +47,37 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
         static getDataFromDb () {
             this.db = {}
             this.db.internInfo = data.getSingleIntern(this.state.internId)
-            this.db.internQuestionsData = data.getAllInternQuestions(this.state.internId).questions
+            this.db.internQuestionsData = data.getAllInternQuestions(this.state.internId)
             this.db.singleQuestionData = data.getQuestionInfo(this.state.internId, this.state.questionId)
         }
 
         static render () {
+            let detailsViewDataObj = {
+                internInfo: this.db.internInfo,
+                currentQuestionText: this.db.singleQuestionData.text,
+                allInternQuestions: this.db.internQuestionsData.questions
+            }
+
             // Load details view page skeleton
-            let detailsViewHtml = detailsView(this.db.internInfo, this.db.internQuestionsData)
+            let detailsViewHtml = detailsView(detailsViewDataObj)
 
             // Render
             $('#root').html(detailsViewHtml)
             // Load iframe playlist
-            this.renderIframePlaylist()
+            this.renderIframePlayer()
         }
 
-        static renderIframePlaylist () {
-            this.iframeApiModule = playerApi()
+        static renderIframePlayer () {
+            let loadIframePlayerFunc = playerApi()
 
-            let questionId = this.state.questionId
-            let loadIframePlayerFunc = this.iframeApiModule.readyPlayer
-            let allVideoIdsArr = this.db.internQuestionsData.map(q => q.videoId)
+            let videoQuestionsInfo = {
+                videoId: this.db.internQuestionsData.videoId,
+                currentQuestionId: Number(this.state.questionId),
+                lastQuestionId: this.db.internQuestionsData.questions.length - 1,
+                videoInfo: this.db.singleQuestionData.video
+            }
 
-            loadIframePlayerFunc(allVideoIdsArr, questionId)
+            loadIframePlayerFunc(videoQuestionsInfo)
         }
 
         static initDetailsPageConfigs () {
@@ -96,18 +105,21 @@ function changeQuestionListener(questionInfoTemplate, detailsController) {
 	$('.question').on('click', e => {
         const elemLi = e.currentTarget
 
-        // To not load the current question if it is clicked again
-        if (elemLi.classList.contains('active')) {
-            return
+        // If question different from previous is loaded
+        if (!elemLi.classList.contains('active')) {
+            // Update state
+            let questionIdIndex = elemLi.value.toString()
+            detailsController.setState(null, questionIdIndex)
+
+            // Update controller data
+            detailsController.getDataFromDb()
         }
 
-        let questionIdIndex = elemLi.value.toString()
-        detailsController.setState(null, questionIdIndex)
-
 		highLightQuestion(elemLi)
-        detailsController.iframeApiModule.changeQuestion(questionIdIndex)
 		renderQuestionInfo(questionInfoTemplate, detailsController.db.singleQuestionData)
-	})
+        detailsController.renderIframePlayer()
+        resizeFrame()
+    })
 }
 
 function resizeListener() {
@@ -119,15 +131,19 @@ function resizeListener() {
 // Listener dependencies
 function resizeFrame() {
 	let playerFrame = $('iframe')
+    let imgClass = $('.img-thump-wrapper')
+
 	let frameWidth = playerFrame.width()
 	let frameHeight = Math.trunc(frameWidth / 1.777)
+    
 	playerFrame.height(frameHeight)
+    imgClass.height(frameHeight)
 }
 
 function renderQuestionInfo(questionInfoTemplate, questionData) {
 	let responseHtml = questionInfoTemplate(questionData.text)
 
-	$('.description-wrapper').html(responseHtml)
+	$('.question-details').html(responseHtml)
 }
 
 function highLightQuestion(elemLi) {
