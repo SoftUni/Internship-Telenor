@@ -35,8 +35,7 @@ define(() => {
           if (event.data === YT.PlayerState.PLAYING) {
               setTimeInterval()
           } else if (event.data === YT.PlayerState.ENDED) {
-              $('#ytplayer').hide()
-              $('.img-thump-wrapper').show()
+              changeFromPlayerToThumpImg()
               clearTimeInterval()
           } else if (event.data === YT.PlayerState.UNSTARTED) {
               // console.log('Video is not started!')
@@ -89,6 +88,13 @@ define(() => {
 
       function updatePlayerData(newVideoData) {
           videoData = newVideoData
+      }
+
+      function changeFromPlayerToThumpImg() {
+          $('.question').removeClass('active')
+          $('#ytplayer').hide()
+          $('.img-thump-wrapper').show()
+          $(window).trigger('resize')
       }
 
       return {

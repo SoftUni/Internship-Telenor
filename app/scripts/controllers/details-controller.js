@@ -125,14 +125,15 @@ function resizeListener() {
 
 // Listener dependencies
 function resizeFrame() {
-	let playerFrame = $('iframe')
-    let imgClass = $('.img-thump-wrapper')
+    $('iframe, .img-thump-wrapper')
+        .each((i, e) => setElementWidthHeight($(e)))
 
-	let frameWidth = playerFrame.width()
-	let frameHeight = Math.trunc(frameWidth / 1.777)
-    
-	playerFrame.height(frameHeight)
-    imgClass.height(frameHeight)
+    function setElementWidthHeight(elem) {
+        let elemWidth = elem.width()
+        let elemHeight = Math.trunc(elemWidth / 1.777)
+
+        elem.height(elemHeight)
+    }
 }
 
 function setUpQuestionDetails(obj) {
