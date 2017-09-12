@@ -11,7 +11,17 @@ define(viewDetailsDependancies, (internInfoTemplate, asidebarTemplate, questionI
                 ${internInfoTemplate(dataObj.internInfo)}
                 <section class="position-details">
                     <section class="question-details">
-                        ${questionInfoTemplate(dataObj.currentQuestionText)}
+                        <div class="player-wrapper">
+                            <div class="img-thump-wrapper">
+                                <img id="thump-telenor-img" 
+                                     src="./assets/images/telenor_thump.jpg" 
+                                     alt="Теленор image" />
+                            </div>
+                            <div id="ytplayer"></div>
+                        </div>
+                        <div class="description-wrapper">
+                            ${questionInfoTemplate(dataObj.currentQuestionText)}
+                        </div>
                     </section>
                     ${asidebarTemplate(dataObj.allInternQuestions)}
                 </section>

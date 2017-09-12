@@ -41,7 +41,7 @@ const interns = [
     },
     {
         id: 5,
-        name: 'Дениз Стефанов',
+        name: 'Денис Стефанов',
         department: 'ДС department',
         position: 'ДС position',
         description: 'Професор Х в извличането на важна информация и откриването на данни',
@@ -58,6 +58,7 @@ const internQuestionInfo = [
                 id: '0',
                 title: 'Защо избра Теленор',
                 video: {
+                    start: 0,
                     end: 16
                 },
                 text: 'Защо избра Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
@@ -116,6 +117,7 @@ const internQuestionInfo = [
                 id: '0',
                 title: 'Защо избра Теленор',
                 video: {
+                    start: 0,
                     end: 14
                 },
                 text: 'Защо избра Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
@@ -165,6 +167,7 @@ const internQuestionInfo = [
                 id: '0',
                 title: 'Защо избра Теленор',
                 video: {
+                    start: 0,
                     end: 30
                 },
                 text: 'Защо избра Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
@@ -255,6 +258,7 @@ const internQuestionInfo = [
                 id: '0',
                 title: 'С какво се занимаваше по време на стажа',
                 video: {
+                    start: 0,
                     end: 37
                 },
                 text: 'С какво се занимаваше по време на стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
@@ -304,6 +308,7 @@ const internQuestionInfo = [
                 id: '0',
                 title: 'С какво се занимаваше по време на стажа',
                 video: {
+                    start: 0,
                     end: 35
                 },
                 text: 'С какво се занимаваше по време на стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'

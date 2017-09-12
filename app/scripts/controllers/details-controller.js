@@ -9,7 +9,7 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
     return class detailsController {
         static setConfigurations (listController, internId) {
             this.setState(internId)
-            this.getDataFromDb()
+            this.getInternData()
             this.render()
             this.initDetailsPageConfigs()
             this.attachListeners(listController)
@@ -44,40 +44,40 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
             this.state = history.state
         }
 
-        static getDataFromDb () {
+        static getInternData () {
             this.db = {}
             this.db.internInfo = data.getSingleIntern(this.state.internId)
             this.db.internQuestionsData = data.getAllInternQuestions(this.state.internId)
             this.db.singleQuestionData = data.getQuestionInfo(this.state.internId, this.state.questionId)
-        }
 
-        static render () {
-            let detailsViewDataObj = {
+            this.playerApiQuestionsInfo = {
+                videoId: this.db.internQuestionsData.videoId,
+                currentQuestionId: Number(this.state.questionId),
+                questionsInfo: this.db.internQuestionsData.questions
+                    .map(q => q.video)
+            }
+
+            this.detailsViewDataObj = {
                 internInfo: this.db.internInfo,
                 currentQuestionText: this.db.singleQuestionData.text,
                 allInternQuestions: this.db.internQuestionsData.questions
             }
+        }
 
+        static render () {
             // Load details view page skeleton
-            let detailsViewHtml = detailsView(detailsViewDataObj)
+            let detailsViewHtml = detailsView(this.detailsViewDataObj)
 
             // Render
             $('#root').html(detailsViewHtml)
-            // Load iframe playlist
+            // Load iframe player
             this.renderIframePlayer()
         }
 
         static renderIframePlayer () {
-            let loadIframePlayerFunc = playerApi()
+            this.IframePlayerFunc = playerApi()
 
-            let videoQuestionsInfo = {
-                videoId: this.db.internQuestionsData.videoId,
-                currentQuestionId: Number(this.state.questionId),
-                lastQuestionId: this.db.internQuestionsData.questions.length - 1,
-                videoInfo: this.db.singleQuestionData.video
-            }
-
-            loadIframePlayerFunc(videoQuestionsInfo)
+            this.IframePlayerFunc.readyPlayer(this.playerApiQuestionsInfo)
         }
 
         static initDetailsPageConfigs () {
@@ -97,28 +97,23 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
 // Listeners
 function showListListener(listController, detailsController) {
     $('.close').on('click', null, null, () => {
+        detailsController.IframePlayerFunc.clearTimeInterval()
         listController.setConfigurations(detailsController)
     })
 }
 
 function changeQuestionListener(questionInfoTemplate, detailsController) {
-	$('.question').on('click', e => {
+	$('.question').on('click', (e, fakeClick) => {
         const elemLi = e.currentTarget
 
-        // If question different from previous is loaded
-        if (!elemLi.classList.contains('active')) {
-            // Update state
-            let questionIdIndex = elemLi.value.toString()
-            detailsController.setState(null, questionIdIndex)
-
-            // Update controller data
-            detailsController.getDataFromDb()
+        let questionObj = {
+            fakeClick,
+            elemLi,
+            questionInfoTemplate,
+            detailsController
         }
 
-		highLightQuestion(elemLi)
-		renderQuestionInfo(questionInfoTemplate, detailsController.db.singleQuestionData)
-        detailsController.renderIframePlayer()
-        resizeFrame()
+        setUpQuestionDetails(questionObj)
     })
 }
 
@@ -140,10 +135,38 @@ function resizeFrame() {
     imgClass.height(frameHeight)
 }
 
+function setUpQuestionDetails(obj) {
+    let telenorThumpImage = $('.img-thump-wrapper')
+
+    if (telenorThumpImage.is(':visible')) {
+        telenorThumpImage.hide()
+        $('#ytplayer').show()
+    }
+
+    // Update state if question is different from previous
+    if (!obj.elemLi.classList.contains('active')) {
+        // Update state
+        let questionIdIndex = obj.elemLi.value.toString()
+        obj.detailsController.setState(null, questionIdIndex)
+
+        // Update controller data
+        obj.detailsController.getInternData()
+    }
+
+    highLightQuestion(obj.elemLi)
+    renderQuestionInfo(obj.questionInfoTemplate, obj.detailsController.db.singleQuestionData)
+
+    // Update iframe data/clip
+    obj.detailsController.IframePlayerFunc.updatePlayerData(obj.detailsController.playerApiQuestionsInfo)
+    if (!obj.fakeClick) {
+        obj.detailsController.IframePlayerFunc.loadQuestionVideoClip()
+    }
+}
+
 function renderQuestionInfo(questionInfoTemplate, questionData) {
 	let responseHtml = questionInfoTemplate(questionData.text)
 
-	$('.question-details').html(responseHtml)
+	$('.description-wrapper').html(responseHtml)
 }
 
 function highLightQuestion(elemLi) {
