@@ -16,6 +16,7 @@ body {
     margin: 0;
     font: 16px 'telenor-light', 'telenor-regular', 'Open Sans', sans-serif;
     quotes: '\201c' '\201d';
+    overflow-y: scroll;
 }
     header.telenor-nav,
     footer {

@@ -155,6 +155,7 @@ function setUpQuestionDetails(obj) {
 
     highLightQuestion(obj.elemLi)
     renderQuestionInfo(obj.questionInfoTemplate, obj.detailsController.db.singleQuestionData)
+    scrollToVideo()
 
     // Update iframe data/clip
     obj.detailsController.IframePlayerFunc.updatePlayerData(obj.detailsController.playerApiQuestionsInfo)
@@ -172,4 +173,12 @@ function renderQuestionInfo(questionInfoTemplate, questionData) {
 function highLightQuestion(elemLi) {
 	$('.question').removeClass('active')
 	$(elemLi).addClass('active')
+}
+
+function scrollToVideo() {
+	$('html, body').animate({
+		scrollTop: $('.details-container').offset().top
+	}, 500)
+
+	$('#ytplayer').focus()
 }
