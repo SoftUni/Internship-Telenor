@@ -125,7 +125,7 @@ function resizeListener() {
 
 // Listener dependencies
 function resizeFrame() {
-    $('iframe, .img-thump-wrapper')
+    $('iframe, #thump-telenor-img')
         .each((i, e) => setElementWidthHeight($(e)))
 
     function setElementWidthHeight(elem) {
