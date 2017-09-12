@@ -142,6 +142,7 @@ function setUpQuestionDetails(obj) {
     if (telenorThumpImage.is(':visible')) {
         telenorThumpImage.hide()
         $('#ytplayer').show()
+        resizeFrame()
     }
 
     // Update state if question is different from previous
