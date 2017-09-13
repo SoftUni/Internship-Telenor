@@ -1,39 +1,87 @@
 define(() => {
   return () => {
-      var player;
-      function onYouTubeIframeAPIReady(internVideoIdsArr, currentQuestionIndex) {
-          let playlistVideoIdsStr = internVideoIdsArr.join(',')
+      var videoData
+      var timeInterval
+      var player
+
+      function onYouTubeIframeAPIReady(internVideoData) {
+          // Hides telenor thumb image to display iframe player
+          $('.img-thump-wrapper').hide()
+
+          updatePlayerData(internVideoData)
 
           player = new YT.Player('ytplayer', {
+              width: 0,
+              height: 0,
+              videoId: videoData.videoId,
               playerVars: {
-                  'playlist': playlistVideoIdsStr,
                   'rel': 0,
                   'controls': 0,
                   'showinfo': 0
               },
               events: {
-                  'onStateChange': e => onPlayerStateChange(e, currentQuestionIndex)
+                  'onReady': onPlayerReady,
+                  'onStateChange': onPlayerStateChange
               }
           });
       }
 
-      function onPlayerStateChange(event, index) {
-          if (event.data === YT.PlayerState.CUED) {
-              player.playVideoAt(Number(index))
+      function onPlayerReady() {
+          loadQuestionVideoClip()
+      }
+
+      function onPlayerStateChange(event) {
+          if (event.data === YT.PlayerState.PLAYING) {
+              setTimeInterval()
+          } else if (event.data === YT.PlayerState.ENDED) {
+              changeFromPlayerToThumpImg()
+              clearTimeInterval()
+          } else {
+              clearTimeInterval()
           }
-          if (event.data === YT.PlayerState.ENDED) {
-              changeToNextQuestion(player.getPlaylistIndex())
-          }
+      }
+
+      function loadQuestionVideoClip() {
+          let currentClipInfo = videoData.questionsInfo[videoData.currentQuestionId]
+          player.seekTo(currentClipInfo.start, true)
+      }
+
+      function setTimeInterval() {
+          let intervalMilliseconds = 1000
+
+          timeInterval = setInterval(function() {
+              let videoCurrentTimeSeconds = Math.trunc(player.getCurrentTime())
+              let currentClipInfo = videoData.questionsInfo[videoData.currentQuestionId]
+
+              if (videoCurrentTimeSeconds >= currentClipInfo.end) {
+                  changeToNextQuestion(videoData.currentQuestionId + 1)
+              }
+          }, intervalMilliseconds)
+      }
+
+      function clearTimeInterval() {
+          clearInterval(timeInterval)
       }
 
       function changeToNextQuestion(nextQuestionIndex) {
-          $('.question').eq(nextQuestionIndex).trigger('click')
+          $('.question').eq(nextQuestionIndex).trigger('click', ["FakeClick"])
       }
 
-      function changeQuestion(videoPlaylistIndex) {
-          player.playVideoAt(Number(videoPlaylistIndex))
+      function updatePlayerData(newVideoData) {
+          videoData = newVideoData
       }
 
-      return { readyPlayer: onYouTubeIframeAPIReady, changeQuestion }
+      function changeFromPlayerToThumpImg() {
+          $('.question').removeClass('active')
+          $('#ytplayer').hide()
+          $('.img-thump-wrapper').show()
+          $(window).trigger('resize')
+      }
+
+      return {
+          readyPlayer: onYouTubeIframeAPIReady,
+          updatePlayerData,
+          loadQuestionVideoClip
+      }
   }
 })

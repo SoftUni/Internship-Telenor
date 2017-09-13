@@ -41,7 +41,7 @@ const interns = [
     },
     {
         id: 5,
-        name: 'Дениз Стефанов',
+        name: 'Денис Стефанов',
         department: 'ДС department',
         position: 'ДС position',
         description: 'Професор Х в извличането на важна информация и откриването на данни',
@@ -49,215 +49,304 @@ const interns = [
     },
 ]
 
-// TODO: Are the questions different for every intern position?
 const internQuestionInfo = [
     {
         internId: 0,
+        videoId: 'Ro3PUQQ84Nc',
         questions: [
             {
                 id: '0',
-                title: 'Защо избра да кандидатстваш в Теленор',
-                videoId: 'n6ryV8WGctE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Защо избра Теленор',
+                video: {
+                    start: 0,
+                    end: 16
+                },
+                text: 'Защо избра Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '1',
-                title: 'Какви са впечатленията ти за колегите ти',
-                videoId: 'jpmWHPpaiso',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'С какво се занимаваше по време на стажа',
+                video: {
+                    start: 16,
+                    end: 31
+                },
+                text: 'С какво се занимаваше по време на стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '2',
-                title: 'В какъв проект участваш',
-                videoId: 'FkOyTwAE4HE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Какво е най-ценното, което научи от стажа',
+                video: {
+                    start: 31,
+                    end: 47
+                },
+                text: 'Какво е най-ценното, което научи от стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '3',
-                title: 'Разкажи ми за твой успех по време на стажа',
-                videoId: 'ocB530rxUFA',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Промени ли се мнението ти за Теленор след края на стажа',
+                video: {
+                    start: 47,
+                    end: 65
+                },
+                text: 'Промени ли се мнението ти за Теленор след края на стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '4',
+                title: 'Каква е екипната атмосфера в офиса',
+                video: {
+                    start: 65,
+                    end: 84
+                },
+                text: 'Каква е екипната атмосфера в офиса: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+            },
+            {
+                id: '5',
                 title: 'Какво би посъветвала бъдещите стажанти',
-                videoId: 'es1D1lWI3x8',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                video: {
+                    start: 84
+                },
+                text: 'Какво би посъветвала бъдещите стажанти: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
     {
         internId: 1,
+        videoId: 'lkh1d5Crp2c',
         questions: [
             {
                 id: '0',
-                title: 'Защо избра да кандидатстваш в Теленор',
-                videoId: 'n6ryV8WGctE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Защо избра Теленор',
+                video: {
+                    start: 0,
+                    end: 14
+                },
+                text: 'Защо избра Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '1',
-                title: 'Как би описала атмосферата в офиса',
-                videoId: 'jpmWHPpaiso',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Какво е най-ценното, което научи от стажа',
+                video: {
+                    start: 14,
+                    end: 24
+                },
+                text: 'Какво е най-ценното, което научи от стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '2',
-                title: 'В какъв проект участваш',
-                videoId: 'FkOyTwAE4HE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Какво ти харесва в Теленор',
+                video: {
+                    start: 24,
+                    end: 34
+                },
+                text: 'Какво ти харесва в Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '3',
-                title: 'Разкажи ми за твой успех по време на стажа',
-                videoId: 'ocB530rxUFA',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Как би описала атмосферата в офиса',
+                video: {
+                    start: 34,
+                    end: 53
+                },
+                text: 'Как би описала атмосферата в офиса: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '4',
                 title: 'Какво би посъветвала бъдещите стажанти',
-                videoId: 'es1D1lWI3x8',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                video: {
+                    start: 53
+                },
+                text: 'Какво би посъветвала бъдещите стажанти: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
     {
         internId: 2,
+        videoId: 'qsjiDKY3XWk',
         questions: [
             {
                 id: '0',
-                title: 'Защо избра да кандидатстваш в Теленор',
-                videoId: 'n6ryV8WGctE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Защо избра Теленор',
+                video: {
+                    start: 0,
+                    end: 30
+                },
+                text: 'Защо избра Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '1',
-                title: 'Какви са впечатленията ти за колегите ти',
-                videoId: 'jpmWHPpaiso',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'С какво се занимаваше по време на стажа',
+                video: {
+                    start: 31,
+                    end: 54
+                },
+                text: 'С какво се занимаваше по време на стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '2',
-                title: 'В какъв проект участваш',
-                videoId: 'FkOyTwAE4HE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Как би описала атмосферата в офиса',
+                video: {
+                    start: 54,
+                    end: 91
+                },
+                text: 'Как би описала атмосферата в офиса: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '3',
-                title: 'Разкажи ми за твой успех по време на стажа',
-                videoId: 'ocB530rxUFA',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Какво е най-ценното, което научи от стажа',
+                video: {
+                    start: 91,
+                    end: 109
+                },
+                text: 'Какво е най-ценното, което научи от стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '4',
                 title: 'Какво би посъветвала бъдещите стажанти',
-                videoId: 'es1D1lWI3x8',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                video: {
+                    start: 109
+                },
+                text: 'Какво би посъветвала бъдещите стажанти: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
     {
         internId: 3,
+        videoId: 'DE7_ThRnnxU',
         questions: [
             {
                 id: '0',
-                title: 'Защо избра да кандидатстваш в Теленор',
-                videoId: 'n6ryV8WGctE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Защо избра Теленор',
+                video: {
+                    start: 0,
+                    end: 27
+                },
+                text: 'Защо избра Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '1',
                 title: 'Какво научи от стажа в Теленор',
-                videoId: 'jpmWHPpaiso',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                video: {
+                    start: 27,
+                    end: 63
+                },
+                text: 'Какво научи от стажа в Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '2',
                 title: 'Как би описал работата в екипа',
-                videoId: 'FkOyTwAE4HE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                video: {
+                    start: 63,
+                    end: 83
+                },
+                text: 'Как би описал работата в екипа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '3',
-                title: 'Разкажи ми за твой успех по време на стажа',
-                videoId: 'ocB530rxUFA',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
-            },
-            {
-                id: '4',
-                title: 'Какво ще посъветваш бъдещите стажанти',
-                videoId: 'es1D1lWI3x8',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Какво би посъветвал бъдещите стажанти',
+                video: {
+                    start: 84,
+                },
+                text: 'Какво би посъветвал бъдещите стажанти: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
     {
         internId: 4,
+        videoId: 'KS4SKSYIvis',
         questions: [
             {
                 id: '0',
-                title: 'Защо избра да кандидатстваш в Теленор',
-                videoId: 'n6ryV8WGctE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'С какво се занимаваше по време на стажа',
+                video: {
+                    start: 0,
+                    end: 37
+                },
+                text: 'С какво се занимаваше по време на стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '1',
                 title: 'Как оценяваш екипа си',
-                videoId: 'jpmWHPpaiso',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                video: {
+                    start: 38,
+                    end: 66
+                },
+                text: 'Как оценяваш екипа си: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '2',
-                title: 'В какъв проект участваш',
-                videoId: 'FkOyTwAE4HE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Защо избра Теленор',
+                video: {
+                    start: 67,
+                    end: 94
+                },
+                text: 'Защо избра Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '3',
-                title: 'Разкажи ми за твой успех по време на стажа',
-                videoId: 'ocB530rxUFA',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Какво е Digital Service Provider',
+                video: {
+                    start: 95,
+                    end: 126
+                },
+                text: 'Какво е Digital Service Provider: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '4',
                 title: 'Какво би посъветвал бъдещите стажанти',
-                videoId: 'es1D1lWI3x8',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                video: {
+                    start: 127
+                },
+                text: 'Какво би посъветвал бъдещите стажанти: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },
     {
         internId: 5,
+        videoId: 'ZyVaVssgzpw',
         questions: [
             {
                 id: '0',
-                title: 'Защо избра да кандидатстваш в Теленор',
-                videoId: 'n6ryV8WGctE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'С какво се занимаваше по време на стажа',
+                video: {
+                    start: 0,
+                    end: 35
+                },
+                text: 'С какво се занимаваше по време на стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '1',
-                title: 'Как би описал екипа и средата за работа в Теленор',
-                videoId: 'jpmWHPpaiso',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Какво е най-ценното, което научи от стажа',
+                video: {
+                    start: 36,
+                    end: 61
+                },
+                text: 'Какво е най-ценното, което научи от стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '2',
-                title: 'В какъв проект участваш',
-                videoId: 'FkOyTwAE4HE',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Как би описал екипа и средата за работа в Теленор',
+                video: {
+                    start: 62,
+                    end: 87
+                },
+                text: 'Как би описал екипа и средата за работа в Теленор: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '3',
                 title: 'Промени ли се мнението ти за Теленор след края на стажа',
-                videoId: 'ocB530rxUFA',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                video: {
+                    start: 88,
+                    end: 111
+                },
+                text: 'Промени ли се мнението ти за Теленор след края на стажа: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             },
             {
                 id: '4',
-                title: 'Какво ще посъветваш бъдещите стажанти',
-                videoId: 'es1D1lWI3x8',
-                text: 'Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
+                title: 'Какво е Digital Service Provider',
+                video: {
+                    start: 112,
+                },
+                text: 'Какво е Digital Service Provider: Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis'
             }
         ]
     },

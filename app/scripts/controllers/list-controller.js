@@ -1,13 +1,15 @@
 const listDependencies = [
 	'../database/data.js',
-	'../views/list/list.js'
+	'../views/list/list.js',
+    '../utils/clearAllBrowserIntervals.js'
 ]
 
-define(listDependencies, (data, listView) => {
+define(listDependencies, (data, listView, clearAllIntervals) => {
 	return class listController {
         static setConfigurations(detailsController) {
             this.setState()
             this.getDataFromDb()
+            clearAllIntervals()
             this.render()
             this.removeListeners()
             this.attachListeners(detailsController)
@@ -38,7 +40,6 @@ define(listDependencies, (data, listView) => {
         }
 
         static render() {
-            // Render
             $('#root').html(listView(this.internsData))
         }
     }
