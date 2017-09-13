@@ -33,17 +33,21 @@ define(() => {
       function onPlayerStateChange(event) {
           if (event.data === YT.PlayerState.PLAYING) {
               setTimeInterval()
+              return
           } else if (event.data === YT.PlayerState.ENDED) {
               changeFromPlayerToThumpImg()
-              clearTimeInterval()
-          } else {
+          }
+
+          if (timeInterval) {
               clearTimeInterval()
           }
       }
 
       function loadQuestionVideoClip() {
           let currentClipInfo = videoData.questionsInfo[videoData.currentQuestionId]
-          player.seekTo(currentClipInfo.start, true)
+          let allowSeekAhead = true
+
+          player.seekTo(currentClipInfo.start, allowSeekAhead)
       }
 
       function setTimeInterval() {
