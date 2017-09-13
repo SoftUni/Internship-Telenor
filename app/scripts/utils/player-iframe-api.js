@@ -27,7 +27,6 @@ define(() => {
       }
 
       function onPlayerReady() {
-          // console.log('Player is ready')
           loadQuestionVideoClip()
       }
 
@@ -37,12 +36,6 @@ define(() => {
           } else if (event.data === YT.PlayerState.ENDED) {
               changeFromPlayerToThumpImg()
               clearTimeInterval()
-          } else if (event.data === YT.PlayerState.UNSTARTED) {
-              // console.log('Video is not started!')
-              setTimeInterval()
-
-              clearAllPreviousIntervals()
-                // .then(result => console.log(`Cleared previous intervals: ${result}`))
           } else {
               clearTimeInterval()
           }
@@ -54,32 +47,20 @@ define(() => {
       }
 
       function setTimeInterval() {
+          let intervalMilliseconds = 1000
+
           timeInterval = setInterval(function() {
               let videoCurrentTimeSeconds = Math.trunc(player.getCurrentTime())
               let currentClipInfo = videoData.questionsInfo[videoData.currentQuestionId]
-              // console.log(`QuestionId: ${videoData.currentQuestionId}, seconds: ${videoCurrentTimeSeconds}`)
 
               if (videoCurrentTimeSeconds >= currentClipInfo.end) {
-                  // console.log('Change to next question!')
                   changeToNextQuestion(videoData.currentQuestionId + 1)
               }
-          }, 1000)
+          }, intervalMilliseconds)
       }
 
       function clearTimeInterval() {
-          // console.log(`Interval Id: ${timeInterval}`)
           clearInterval(timeInterval)
-      }
-
-      function clearAllPreviousIntervals() {
-          return new Promise((resolve, reject) => {
-              let arr = []
-              for (let i = 0; i < timeInterval; i++) {
-                  arr.push(i)
-                  clearInterval(i)
-              }
-              resolve(arr.join(","))
-          })
       }
 
       function changeToNextQuestion(nextQuestionIndex) {
@@ -100,8 +81,7 @@ define(() => {
       return {
           readyPlayer: onYouTubeIframeAPIReady,
           updatePlayerData,
-          loadQuestionVideoClip,
-          clearTimeInterval
+          loadQuestionVideoClip
       }
   }
 })

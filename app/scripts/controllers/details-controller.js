@@ -2,14 +2,16 @@ const detailsDependencies = [
 	'../database/data.js',
 	'../views/details/details.js',
     '../views/details/templates/section-details-question-info.js',
-    '../utils/player-iframe-api.js'
+    '../utils/player-iframe-api.js',
+    '../utils/clearAllBrowserIntervals.js'
 ]
 
-define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi) => {
+define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi, clearAllIntervals) => {
     return class detailsController {
         static setConfigurations (listController, internId) {
             this.setState(internId)
             this.getInternData()
+            clearAllIntervals()
             this.render()
             this.initDetailsPageConfigs()
             this.attachListeners(listController)
@@ -97,7 +99,6 @@ define(detailsDependencies, (data, detailsView, questionInfoTemplate, playerApi)
 // Listeners
 function showListListener(listController, detailsController) {
     $('.close').on('click', null, null, () => {
-        detailsController.IframePlayerFunc.clearTimeInterval()
         listController.setConfigurations(detailsController)
     })
 }
@@ -160,7 +161,10 @@ function setUpQuestionDetails(obj) {
     scrollToVideo()
 
     // Update iframe data/clip
-    obj.detailsController.IframePlayerFunc.updatePlayerData(obj.detailsController.playerApiQuestionsInfo)
+    obj.detailsController
+        .IframePlayerFunc
+        .updatePlayerData(obj.detailsController.playerApiQuestionsInfo)
+
     if (!obj.fakeClick) {
         obj.detailsController.IframePlayerFunc.loadQuestionVideoClip()
     }
